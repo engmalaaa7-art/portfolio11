@@ -1,0 +1,129 @@
+@import './tokens.css';
+
+/* Supplied Production Fonts */
+@font-face {
+  font-family: 'Homoarakhn';
+  src: url('/assets/fonts/Homoarakhn.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CombackHome';
+  src: url('/assets/fonts/CombackHome.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ZainMob';
+  src: url('/assets/fonts/ZainMob.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Reset & Global Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: dark;
+  background-color: var(--color-deep-black);
+  color: var(--color-cream-white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  width: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-deep-black);
+  color: var(--color-cream-white);
+  line-height: 1.5;
+  overflow-x: clip;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Custom Scrollbar for Cinematic Theme */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-deep-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-deep-crimson);
+  border-radius: var(--border-radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cinematic-red);
+}
+
+/* Subtle Web Line Pattern Background Utility */
+.bg-web-grid {
+  background-image: 
+    linear-gradient(to right, rgba(184, 32, 36, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(184, 32, 36, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Vignette Atmospheric Utility */
+.bg-vignette {
+  background: radial-gradient(
+    circle at center,
+    transparent 20%,
+    rgba(9, 8, 10, 0.8) 70%,
+    rgba(9, 8, 10, 0.98) 100%
+  );
+}
+
+/* Navigation Responsive Utilities */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.8rem, 2vw, 1.8rem);
+}
+
+.header-tagline {
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .header-tagline {
+    display: none !important;
+  }
+}

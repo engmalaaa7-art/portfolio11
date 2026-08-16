@@ -1,0 +1,86 @@
+/* ==========================================================================
+   AHMED AL MALAH — CINEMATIC DESIGN SYSTEM TOKENS
+   ========================================================================== */
+
+:root {
+  /* Color Tokens */
+  --color-deep-black: #09080A;
+  --color-deep-crimson: #7A1014;
+  --color-cinematic-red: #B82024;
+  --color-hot-orange: #E64A24;
+  --color-warm-orange: #F27A32;
+  --color-cream-white: #F3EDE3;
+  --color-muted-beige: #B9ADA1;
+
+  /* Atmospheric Transparencies */
+  --color-black-80: rgba(9, 8, 10, 0.8);
+  --color-black-60: rgba(9, 8, 10, 0.6);
+  --color-black-40: rgba(9, 8, 10, 0.4);
+  --color-crimson-20: rgba(122, 16, 20, 0.2);
+  --color-red-15: rgba(184, 32, 36, 0.15);
+  --color-orange-10: rgba(230, 74, 36, 0.1);
+
+  /* Typography Tokens — Supplied Production Fonts */
+  --font-display: 'Homoarakhn', sans-serif;
+  --font-display-alt: 'CombackHome', 'Homoarakhn', sans-serif;
+  --font-arabic: 'ZainMob', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Typography Scale */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 2rem;      /* 32px */
+  --text-4xl: 2.5rem;    /* 40px */
+  --text-5xl: 3.5rem;    /* 56px */
+  --text-6xl: 5rem;      /* 80px */
+  --text-hero: 8rem;     /* 128px cinematic display */
+
+  /* Spacing Tokens */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+  --space-24: 6rem;    /* 96px */
+
+  /* Border & Outline Tokens */
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 8px;
+  --border-subtle: 1px solid rgba(243, 237, 227, 0.08);
+  --border-accent: 1px solid rgba(184, 32, 36, 0.3);
+  --border-glow: 1px solid rgba(230, 74, 36, 0.5);
+
+  /* Elevation & Shadows */
+  --shadow-cinematic-glow: 0 0 40px rgba(184, 32, 36, 0.25);
+  --shadow-rim-light: 0 0 20px rgba(242, 122, 50, 0.2);
+  --shadow-deep-drop: 0 20px 50px rgba(0, 0, 0, 0.9);
+
+  /* Animation Timing & Easing Tokens */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 600ms;
+  --duration-cinematic: 1000ms;
+
+  --ease-out-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-cinematic: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Hero Layer Z-Indexes */
+  --z-layer-1-atmosphere: 10;
+  --z-layer-2-environment: 20;
+  --z-layer-3-character: 30;
+  --z-layer-4-typography: 40;
+  --z-layer-5-particles: 50;
+  --z-layer-6-mask: 60;
+  --z-layer-7-face: 70;
+  --z-layer-8-foreground: 80;
+  --z-ui-overlay: 100;
+}
