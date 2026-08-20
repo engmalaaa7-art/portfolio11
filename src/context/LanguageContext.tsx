@@ -12,141 +12,148 @@ interface LanguageContextType {
 export const translations: Record<string, { en: string; ar: string }> = {
   // Navigation & Meta
   site_title: {
-    en: 'Ahmed Al Malah — AI × Software × Data × Business × Product',
-    ar: 'أحمد الملاح — الذكاء الاصطناعي × البرمجيات × البيانات × الأعمال',
+    en: 'Ahmed Al Malah — Designer · Developer · AI',
+    ar: 'أحمد الملاح — مبرمج · مطور · ذكاء اصطناعي',
   },
   site_desc: {
-    en: 'Cinematic Portfolio of Ahmed Al Malah — Applied AI & Software Engineer, Computer Science at Alexandria University.',
-    ar: 'المعرض السينمائي لأحمد الملاح — مهندس برمجيات وذكاء اصطناعي تطبيقي، علوم الحاسوب بجامعة الإسكندرية.',
+    en: 'Portfolio of Ahmed Al Malah — Designer, Developer & AI Specialist.',
+    ar: 'المعرض الشخصي لأحمد الملاح — مبرمج ومطور ومتخصص في الذكاء الاصطناعي.',
   },
   engineer_tag: {
-    en: 'AI × SOFTWARE × DATA',
-    ar: 'ذكاء اصطناعي × برمجيات × بيانات',
+    en: 'DESIGNER · DEVELOPER · AI',
+    ar: 'مصمم · مطور · ذكاء اصطناعي',
   },
-  nav_identity: { en: 'IDENTITY', ar: 'الهوية' },
-  nav_oss: { en: 'OSS // أُسّ', ar: 'أُسّ' },
-  nav_journey: { en: 'JOURNEY', ar: 'المسيرة' },
-  nav_profile: { en: 'PROFILE', ar: 'الخبرات' },
+  nav_identity: { en: 'ABOUT', ar: 'عن أحمد' },
+  nav_oss: { en: 'OSS // أُسّ', ar: 'منتج أُسّ' },
+  nav_journey: { en: 'EXPERIENCE', ar: 'الخبرات' },
+  nav_profile: { en: 'SKILLS & SERVICES', ar: 'المهارات والخدمات' },
   nav_contact: { en: 'CONTACT', ar: 'تواصل' },
 
   // Intro Prologue
   intro_eyebrow: {
     en: 'PROLOGUE // THE ARCHITECTURE OF IDENTITY',
-    ar: 'المقدمة // معمارية الهوية',
+    ar: 'المقدمة //  الهوية',
   },
   intro_statement_1: {
     en: 'EVERY HERO HAS A STORY BEHIND THE MASK.',
     ar: 'لكل بطل قصة خلف القناع.',
   },
   intro_statement_2: {
-    en: 'MINE IS WRITTEN IN CODE.',
-    ar: 'وقصتي كُتبت بالكود.',
+    en: 'MINE IS WRITTEN IN CODE & DESIGN.',
+    ar: 'وقصتي كُتبت بالتصميم والكود.',
   },
   intro_skip: {
     en: 'CLICK OR ESC TO ENTER',
     ar: 'اضغط للمتابعة أو ESC',
   },
 
-  // World 01: Hero (The Mask)
+  // World 01: Hero (Cover)
   hero_eyebrow_mask: { en: '01 // THE MASK', ar: '٠١ // القناع' },
-  hero_eyebrow_unmasking: { en: 'UNMASKING // REVEALING THE ENGINEER', ar: 'كسر القناع // كشف الهوية' },
+  hero_eyebrow_unmasking: { en: 'UNMASKING // REVEALING THE DESIGNER & DEVELOPER', ar: 'كشف الهوية // المصمم والمطور' },
   hero_eyebrow_unmasked: { en: '01 // THE PERSON', ar: '٠١ // الشخص خلف القناع' },
   hero_heading_mask: { en: 'THE MASK', ar: 'القناع' },
   hero_heading_unmasked: { en: 'AHMED AL MALAH', ar: 'أحمد الملاح' },
-  hero_sub_mask: { en: 'SCROLL TO UNMASK THE ENGINEER BEHIND IT', ar: 'مرر للأسفل لكشف المهندس خلف القناع' },
-  hero_sub_unmasking: { en: 'IDENTITY BREAKING THROUGH...', ar: 'جاري كشف الهوية الهندسية...' },
-  hero_sub_unmasked: { en: 'AI APPLIED & SOFTWARE ENGINEER', ar: 'مهندس برمجيات وذكاء اصطناعي تطبيقي' },
+  hero_sub_mask: { en: 'DESIGNER · DEVELOPER · AI', ar: 'مصمم · مطور · ذكاء اصطناعي' },
+  hero_sub_unmasking: { en: 'DESIGN × TECHNOLOGY × AI', ar: 'تصميم × تكنولوجيا × ذكاء اصطناعي' },
+  hero_sub_unmasked: { en: 'DESIGNER · DEVELOPER · AI', ar: 'مصمم · مطور · ذكاء اصطناعي' },
+  hero_portfolio_year: { en: 'PORTFOLIO — 2026', ar: 'المعرض الشخصي — ٢٠٢٦' },
 
-  // World 02: The Person (Identity)
-  person_eyebrow: { en: '02 // THE PERSON', ar: '٠٢ // الهوية والشخصية' },
-  person_name: { en: 'AHMED AL MALAH', ar: 'أحمد الملاح' },
-  person_role: { en: 'AI APPLIED & SOFTWARE ENGINEER', ar: 'مهندس برمجيات وذكاء اصطناعي تطبيقي' },
+  // World 02: About Me & Currently
+  person_eyebrow: { en: '02 // ABOUT ME', ar: '٠٢ // عن أحمد' },
+  person_greeting: { en: "HELLO, I'M AHMED.", ar: 'أهلًا، أنا أحمد.' },
+  person_name: { en: 'AHMED AL MALAH', ar: 'أحـــــمد اــــلملاح' },
+  person_role: { en: 'Designer · Developer · AI', ar: 'مصمم ومطور مهتم بالـ Design, Technology & AI' },
   person_p1: {
-    en: 'An applied software engineer building at the intersection of deep code, intelligent models, data analytics, and real-world business execution.',
-    ar: 'مهندس برمجيات تطبيقي يبني عند تقاطع الكود العميق، والنماذج الذكية، وتحليل البيانات، والتنفيذ الفعلي للأعمال.',
+    en: "I work in the space where Creative Thinking meets Technical Execution, always striving to turn ideas into clear, impactful solutions.",
+    ar: 'بشتغل في المساحة اللي بتجمع بين Creative Thinking و Technical Execution، وبحاول دائمًا أحوّل الأفكار لحلول واضحة ومؤثرة.',
   },
   person_p2: {
-    en: 'Bridging algorithmic computer science foundations with modern generative pipelines, building resilient products, and translating complex business problems into scalable software solutions.',
-    ar: 'أجمع بين الأسس الخوارزمية لعلوم الحاسوب ومسارات الذكاء الاصطناعي الحديثة، لبناء منتجات متينة وتحويل مشاكل الأعمال المعقدة إلى حلول برمجية قابلة للتوسع.',
+    en: 'Currently expanding my expertise in AI & Product Development, building solutions that bridge design aesthetics with technical execution.',
+    ar: 'حاليًا بوسّع خبرتي في الـ AI & Product Development، وبشتغل على بناء حلول تجمع بين الإبداع والتنفيذ التقني.',
   },
-  person_location: { en: 'ALEXANDRIA, EGYPT', ar: 'الإسكندرية، مصر' },
-  person_class: { en: 'CS · CLASS OF 2026 · GPA 3.8 (A+)', ar: 'علوم الحاسوب · دفعة ٢٠٢٦ · معدل 3.8 (+A)' },
+  person_currently_tag: { en: 'CURRENTLY // DESIGN × CODE × AI', ar: 'حاليًا // تصميم × كود × ذكاء اصطناعي' },
+  person_location: { en: 'CAIRO / ALEXANDRIA, EGYPT', ar: 'القاهرة / الإسكندرية، مصر' },
 
-  // World 03: OSS Product Showcase
-  oss_eyebrow: { en: '03 // FLAGSHIP AI PRODUCT', ar: '٠٣ // المنتج الرئيسي للذكاء الاصطناعي' },
-  oss_title: { en: 'AI-POWERED WEBSITE BUILDING', ar: 'بناء مواقع الويب بالذكاء الاصطناعي' },
-  oss_subtitle: {
-    en: 'Describe your idea in plain words. OSS turns that idea into a complete, beautiful, production-grade website.',
-    ar: 'صف فكرتك بالكلمات الطبيعية. يحول نظام أُسّ هذه الفكرة إلى موقع ويب متكامل، جمالي، وجاهز للإنتاج.',
-  },
-  oss_stage_01: { en: '01. HUMAN IDEA', ar: '٠١. فكرة المستخدم' },
-  oss_stage_02: { en: '02. UNDERSTAND', ar: '٠٢. الفهم والتفكيك' },
-  oss_stage_03: { en: '03. BUILD', ar: '٠٣. البناء والتشكيل' },
-  oss_stage_04: { en: '04. PRODUCT', ar: '٠٤. بنية المنتج' },
-  oss_simulated_tag: { en: 'SIMULATED PRODUCT ARCHITECTURE', ar: 'بنية منتج توضيحية ومحاكاة' },
+  // Section 03: By The Numbers
+  numbers_eyebrow: { en: '03 // BY THE NUMBERS', ar: '٠٣ // بالأرقام' },
+  num_years: { en: 'YEARS OF EXPERIENCE', ar: 'سنوات من الخبرة' },
+  num_projects: { en: 'PROJECTS DELIVERED', ar: 'مشروعًا منفذًا' },
+  num_teams: { en: 'TEAMS & ORGANIZATIONS', ar: 'فرق عمل ومنظمات' },
+  num_markets: { en: 'GLOBAL MARKETS', ar: 'أسواق مختلفة' },
+  num_disciplines: { en: 'CORE DISCIPLINES', ar: 'مجالات رئيسية' },
 
-  // World 04: Career Archive
-  journey_eyebrow: { en: '04 // CAREER ARCHIVE', ar: '٠٤ // سجل المسيرة المهنية' },
-  journey_title: { en: 'THE JOURNEY', ar: 'المسيرة' },
+  // Section 04: What I Do
+  what_eyebrow: { en: '04 // WHAT I DO', ar: '٠٤ // ماذا أقدم' },
+  what_title: { en: 'CORE DISCIPLINES', ar: 'المجالات الرئيسية' },
+  what_art_dir_title: { en: 'ART DIRECTION', ar: 'التوجيه الفني والتصميم' },
+  what_art_dir_desc: { en: 'Creative Direction · Visual Systems · Branding', ar: 'توجيه إبداعي · أنظمة بصرية · هوية بصرية' },
+  what_digital_title: { en: 'DIGITAL DESIGN', ar: 'التصميم الرقمي وتجربة المستخدم' },
+  what_digital_desc: { en: 'UI/UX · Web Design · Digital Experiences', ar: 'واجهات وتجربة المستخدم · تصميم الويب · تجارب رقمية' },
+  what_dev_title: { en: 'DEVELOPMENT', ar: 'تطوير البرمجيات' },
+  what_dev_desc: { en: 'Frontend · Mobile · Backend', ar: 'واجهات الأمامية · تطبيقات الهاتف · البنية الخلفية' },
+  what_ai_title: { en: 'ARTIFICIAL INTELLIGENCE', ar: 'الذكاء الاصطناعي' },
+  what_ai_desc: { en: 'AI Products · Automation · AI Workflows', ar: 'منتجات الذكاء الاصطناعي · الأتمتة · مسارات العمل الذكية' },
+
+  // Section 05: Experience
+  journey_eyebrow: { en: '05 // EXPERIENCE', ar: '٠٥ // الخبرات المهنية' },
+  journey_title: { en: 'CAREER ARCHIVE', ar: 'المسيرة المهنية' },
   journey_sub: {
-    en: 'Verified roles, institutional coordination, leadership progression, and engineering contributions across industry, startups, and community ecosystems.',
-    ar: 'الأدوار المهنية المعتمدة، والتنسيق المؤسسي، والتدرج القيادي، والمساهمات الهندسية عبر الشركات والمنظومات المجتمعية.',
+    en: 'Proven record of creative direction, software engineering, UI/UX, and marketing technology across top brands and institutions.',
+    ar: 'سجل حافل من التوجيه الإبداعي، وهندسة البرمجيات، وتصميم الواجهات عبر كبرى المؤسسات والعلامات التجارية.',
   },
 
-  // World 05: Engineering Profile & Capabilities
-  system_eyebrow: { en: '05 // ENGINEERING & BUSINESS PROFILE', ar: '٠٥ // الملف الهندسي وإدارة الأعمال' },
-  system_title: { en: 'WHAT I BUILD', ar: 'ماذا أبني' },
-  system_intersection: {
-    en: 'AI × SOFTWARE × DATA × BUSINESS × PRODUCT',
-    ar: 'الذكاء الاصطناعي × البرمجيات × البيانات × الأعمال × المنتجات',
-  },
-  data_business_quote: {
-    en: "I don't only build systems. I understand the data behind them and the business decisions they support.",
-    ar: "لا أكتفي ببناء الأنظمة البرمجية؛ بل أفهم البيانات الكامنة خلفها والقرارات الاستراتيجية التي تدعمها.",
-  },
-  scale_eyebrow: { en: 'APPROXIMATE ENGINEERING SCALE', ar: 'حجم الأعمال البرمجية والمنتجات' },
-  scale_web: { en: 'WEB APPLICATIONS DELIVERED', ar: 'تطبيقات ومواقع ويب تم تسليمها' },
-  scale_mobile: { en: 'MOBILE APPLICATIONS ENGINEERED', ar: 'تطبيقات هواتف تم تطويرها' },
-  scale_ai: { en: 'AI & SOFTWARE SYSTEMS BUILT', ar: 'أنظمة ذكاء اصطناعي وبرمجيات' },
-  scale_projects: { en: 'PROJECTS DELIVERED', ar: 'مشاريع منفذة' },
-  scale_products: { en: 'SYSTEMS DEVELOPED', ar: 'أنظمة مطورة' },
-  scroll_to_advance: { en: 'SCROLL TO ADVANCE SYSTEM ARCHITECTURE', ar: 'مرر لاستعراض البنية الهندسية' },
+  // Section 06: My Skills
+  skills_eyebrow: { en: '06 // MY SKILLS', ar: '٠٦ // المهارات والتقنيات' },
+  skills_title: { en: 'TECHNICAL & CREATIVE TOOLKIT', ar: 'الأدوات والتقنيات' },
 
-  // World 06: Impact
-  impact_eyebrow: { en: '06 // IMPACT & REACH', ar: '٠٦ // الأثر المجتمعي والتعليمي' },
-  impact_heading: { en: '13,000+ PEOPLE REACHED', ar: '+١٣,٠٠٠ مستفيد ومشارك' },
-  impact_desc: {
-    en: 'Over 5,000+ learners reached through direct AI and Graphic Design educational workshops, contributing to a broader community reach of 13,000+ youth across leadership initiatives and technical sessions in Egypt.',
-    ar: 'أكثر من ٥,٠٠٠ مستفيد تم تدريبهم من خلال ورش عمل الذكاء الاصطناعي والتصميم، ضمن أثر مجتمعي واسع تخطى ١٣ ألف شاب ومستفيد عبر المبادرات القيادية والفعاليات التقنية في مصر.',
-  },
-  impact_sub_badge: {
-    en: '5,000+ LEARNERS IN AI & DESIGN SESSIONS',
-    ar: '٥,٠٠٠+ متدرب في جلسات الذكاء الاصطناعي والتصميم',
+  // Section 07: My Approach
+  approach_eyebrow: { en: '07 // MY APPROACH', ar: '٠٧ // منهجية العمل' },
+  approach_title: { en: 'HOW I THINK & BUILD', ar: 'كيف أفكر وأبني' },
+  approach_01_title: { en: '01 — UNDERSTAND', ar: '٠١ — الفهم والتحليل' },
+  approach_01_desc: { en: 'Understand the problem before starting the solution.', ar: 'أفهم المشكلة قبل ما أبدأ الحل.' },
+  approach_02_title: { en: '02 — THINK', ar: '٠٢ — التفكير والتوجيه' },
+  approach_02_desc: { en: 'Transform the problem into a clear direction.', ar: 'أحوّل الـProblem إلى Direction واضح.' },
+  approach_03_title: { en: '03 — BUILD', ar: '٠٣ — البناء والتنفيذ' },
+  approach_03_desc: { en: 'Design meets Technology.', ar: 'التصميم يلتقي بالتكنولوجيا والبرمجة.' },
+  approach_04_title: { en: '04 — REFINE', ar: '٠٤ — الإتقان والتطوير' },
+  approach_04_desc: { en: 'Small details make the big difference.', ar: 'التفاصيل الصغيرة بتصنع الفرق.' },
+
+  // Section 08: Areas of Interest
+  interests_eyebrow: { en: '08 // AREAS OF INTEREST', ar: '٠٨ // مجالات الاهتمام' },
+
+  // World 03: OSS Product Showcase (Static compact card)
+  oss_eyebrow: { en: 'FLAGSHIP AI PRODUCT', ar: 'المنتج الرئيسي' },
+  oss_title: { en: 'OSS // AI-POWERED WEBSITE ENGINE', ar: 'أُسّ // محرك بناء المواقع بالذكاء الاصطناعي' },
+  oss_subtitle: {
+    en: 'Turns natural language ideas into complete, beautiful, production-grade web applications.',
+    ar: 'يحول أفكار المستخدم بالكلمات البسيطة إلى مواقع ويب متكاملة، جمالية، وجاهزة للإنتاج.',
   },
 
-  // World 07: Academic Foundation
-  origin_eyebrow: { en: '07 // ACADEMIC FOUNDATION', ar: '٠٧ // الأساس الأكاديمي' },
-  origin_degree: { en: 'COMPUTER SCIENCE', ar: 'علوم الحاسوب' },
-  origin_university: { en: 'ALEXANDRIA UNIVERSITY · CLASS OF 2026', ar: 'جامعة الإسكندرية · دفعة ٢٠٢٦' },
-  origin_academic_standing: { en: 'GPA: 3.8 · GRADE: A+ · ALEXANDRIA, EGYPT', ar: 'المعدل: 3.8 · التقدير: +A · الإسكندرية، مصر' },
-  origin_desc: {
-    en: 'Rigorous foundations in theoretical computation, discrete mathematics, operating systems, and software architecture, translated directly into applied systems.',
-    ar: 'أسس راسخة في الحوسبة النظرية، وهياكل البيانات، والرياضيات المتقطعة، ومعمارية البرمجيات، تُترجم مباشرة إلى أنظمة تطبيقية وإنتاجية.',
+  // Section 10: Personal Statement
+  quote_eyebrow: { en: '10 // PERSONAL STATEMENT', ar: '١٠ // الفلسفة الشخصية' },
+  quote_main: {
+    en: 'I BELIEVE GOOD WORK STARTS WITH GOOD THINKING.',
+    ar: 'أؤمن أن العمل الجيد يبدأ بالتفكير الجيد.',
+  },
+  quote_sub: {
+    en: "My goal isn't just to make something that looks good. My goal is to create something clear, useful, and meaningful.",
+    ar: 'مش هدفي إني أعمل حاجة شكلها حلو بس. هدفي إني أعمل حاجة واضحة، مفيدة، وليها معنى.',
   },
 
-  // World 08: Final Scene & Contact
-  final_eyebrow: { en: '08 // FINAL SCENE', ar: '٠٨ // المشهد الختامي' },
-  final_heading: { en: "LET'S BUILD SOMETHING.", ar: 'فلنبنِ شيئاً عظيماً.' },
+  // Section 11: Final Contact Scene
+  final_eyebrow: { en: '11 // CONTACT', ar: '١١ // التواصل' },
+  final_heading: { en: "LET'S CREATE SOMETHING WORTH REMEMBERING.", ar: 'فلنبنِ شيئاً يستحق أن يُذكر.' },
   final_sub: {
-    en: 'OPEN FOR TECHNICAL ARCHITECTURE, APPLIED AI SYSTEMS & STRATEGIC PRODUCT COLLABORATION',
-    ar: 'متاح لهندسة النظم البرمجية، وحلول الذكاء الاصطناعي التطبيقي، وبناء المنتجات الرقمية',
+    en: 'OPEN FOR ART DIRECTION, UI/UX, FRONTEND & AI PRODUCT COLLABORATION',
+    ar: 'متاح للتوجيه الفني، تصميم الواجهات، تطوير الويب، ومشاريع الذكاء الاصطناعي',
   },
   contact_connect_cta: { en: "LET'S CONNECT", ar: 'تواصل معي' },
-  contact_email: { en: 'EMAIL DIRECT', ar: 'البريد الإلكتروني' },
-  contact_instagram: { en: 'INSTAGRAM', ar: 'إنستغرام' },
-  contact_facebook: { en: 'FACEBOOK', ar: 'فيسبوك' },
+  contact_email: { en: 'EMAIL', ar: 'البريد الإلكتروني' },
+  contact_linkedin: { en: 'LINKEDIN', ar: 'لينكد إن' },
+  contact_behance: { en: 'BEHANCE', ar: 'بيهانس' },
+  contact_github: { en: 'GITHUB', ar: 'جيت هاب' },
   contact_location: { en: 'LOCATION', ar: 'الموقع الجغرافي' },
-  location_val: { en: 'ALEXANDRIA, EGYPT', ar: 'الإسكندرية، مصر' },
+  location_val: { en: 'CAIRO / ALEXANDRIA, EGYPT', ar: 'القاهرة / الإسكندرية، مصر' },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);

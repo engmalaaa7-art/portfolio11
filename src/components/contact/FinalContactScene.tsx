@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Instagram, Facebook, MapPin, ArrowUpRight, MessageSquare } from 'lucide-react';
+import { Mail, Linkedin, Github, MapPin, ArrowUpRight, Globe } from 'lucide-react';
 import { usePointerParallax } from '@/hooks/usePointerParallax';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -11,14 +11,13 @@ export const FinalContactScene: React.FC = () => {
   return (
     <section
       id="contact-final"
-      aria-label="Final Scene, Narrative Closure and Direct Contact Channels"
+      aria-label="Final Contact Scene"
       style={{
         position: 'relative',
         zIndex: 10,
         backgroundColor: 'var(--color-deep-black)',
         color: 'var(--color-cream-white)',
-        padding: 'clamp(6rem, 12vh, 10rem) var(--space-8)',
-        minHeight: 'auto',
+        padding: 'clamp(5rem, 10vh, 8rem) var(--space-8)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -27,7 +26,7 @@ export const FinalContactScene: React.FC = () => {
         borderTop: '1px solid rgba(184, 32, 36, 0.25)',
       }}
     >
-      {/* Atmospheric Crimson Glow & Subtle Web Tension Trajectory */}
+      {/* Glow Field */}
       <div
         style={{
           position: 'absolute',
@@ -43,32 +42,6 @@ export const FinalContactScene: React.FC = () => {
         }}
       />
 
-      {/* Dynamic Narrative Callback Tension Line */}
-      <svg
-        style={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          pointerEvents: 'none',
-          opacity: 0.2,
-        }}
-        viewBox="0 0 1000 600"
-        preserveAspectRatio="none"
-      >
-        <motion.path
-          d="M 0 300 Q 500 120 1000 300"
-          fill="none"
-          stroke="var(--color-hot-orange)"
-          strokeWidth="0.6"
-          strokeDasharray="4 6"
-          initial={prefersReducedMotion ? { pathLength: 1 } : { pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.6, ease: 'easeOut' }}
-        />
-      </svg>
-
       <div
         style={{
           width: '100%',
@@ -76,53 +49,32 @@ export const FinalContactScene: React.FC = () => {
           margin: '0 auto',
           display: 'flex',
           flexDirection: 'column',
-          gap: 'clamp(3.5rem, 7vh, 5.5rem)',
+          gap: 'clamp(3rem, 6vh, 4.5rem)',
           position: 'relative',
           zIndex: 2,
         }}
       >
-        {/* Cinematic Callback Indicator */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 'var(--space-4)' }}>
-          <motion.div
-            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 'var(--space-3)',
-              fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-              fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
-              fontWeight: 700,
-              letterSpacing: isArabic ? '0.04em' : '0.25em',
-              textTransform: 'uppercase',
-              color: 'var(--color-hot-orange)',
-            }}
-          >
-            <span style={{ width: '18px', height: '1px', backgroundColor: 'var(--color-hot-orange)' }} />
-            {t('final_eyebrow')}
-          </motion.div>
-
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 'var(--space-3)',
-              fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-              fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
-              letterSpacing: isArabic ? '0.04em' : '0.18em',
-              color: 'var(--color-muted-beige)',
-              textTransform: 'uppercase',
-            }}
-          >
-            <span>{isArabic ? 'البداية: القناع' : 'OPENING: THE MASK'}</span>
-            <span style={{ color: 'var(--color-hot-orange)' }}>{isArabic ? '←' : '→'}</span>
-            <span style={{ color: 'var(--color-warm-orange)', fontWeight: 700 }}>
-              {isArabic ? 'الخاتمة: الشخص خلف القناع' : 'CLOSURE: THE PERSON BEHIND IT'}
-            </span>
-          </div>
-        </div>
+        {/* Eyebrow Label */}
+        <motion.div
+          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 'var(--space-3)',
+            fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
+            fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
+            fontWeight: 700,
+            letterSpacing: isArabic ? '0.04em' : '0.25em',
+            textTransform: 'uppercase',
+            color: 'var(--color-hot-orange)',
+          }}
+        >
+          <span style={{ width: '18px', height: '1px', backgroundColor: 'var(--color-hot-orange)' }} />
+          {t('final_eyebrow')}
+        </motion.div>
 
         {/* Primary Closing Statement */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
@@ -133,7 +85,7 @@ export const FinalContactScene: React.FC = () => {
             transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             style={{
               fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
-              fontSize: isArabic ? 'clamp(3.2rem, 9.5vw, 7.8rem)' : 'clamp(3.8rem, 10vw, 8.5rem)',
+              fontSize: isArabic ? 'clamp(2.5rem, 6.5vw, 5.8rem)' : 'clamp(3rem, 7.5vw, 6.5rem)',
               lineHeight: isArabic ? 1.15 : 0.88,
               letterSpacing: isArabic ? '0.02em' : '0.04em',
               textTransform: 'uppercase',
@@ -152,10 +104,10 @@ export const FinalContactScene: React.FC = () => {
             transition={{ duration: 0.75, delay: 0.2, ease: 'easeOut' }}
             style={{
               fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display-alt)',
-              fontSize: isArabic ? 'clamp(1.2rem, 2.2vw, 1.7rem)' : 'clamp(1.1rem, 2vw, 1.5rem)',
-              letterSpacing: isArabic ? '0.02em' : '0.12em',
-              color: 'var(--color-warm-orange)',
+              fontSize: isArabic ? 'clamp(1.1rem, 2vw, 1.5rem)' : 'clamp(1rem, 1.8vw, 1.4rem)',
+              letterSpacing: isArabic ? '0.02em' : '0.08em',
               textTransform: 'uppercase',
+              color: 'var(--color-warm-orange)',
               fontWeight: isArabic ? 700 : 'normal',
             }}
           >
@@ -163,14 +115,14 @@ export const FinalContactScene: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Editorial Contact Channels (No phone/WhatsApp, Email + Instagram + Facebook + Location) */}
+        {/* Contact Channels Grid */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: 'var(--space-8)',
-            paddingTop: 'var(--space-8)',
-            borderTop: '1px solid rgba(243, 237, 227, 0.12)',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: 'var(--space-6)',
+            borderTop: '1px solid rgba(243, 237, 227, 0.1)',
+            paddingTop: 'var(--space-6)',
           }}
         >
           {/* Email Item */}
@@ -179,193 +131,143 @@ export const FinalContactScene: React.FC = () => {
             initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.75, delay: 0.3, ease: 'easeOut' }}
+            transition={{ duration: 0.75, delay: 0.3 }}
             style={{
               display: 'flex',
               flexDirection: 'column',
               gap: 'var(--space-2)',
               textDecoration: 'none',
               color: 'inherit',
-              transition: 'transform 0.3s ease',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = isArabic ? 'translateX(-6px)' : 'translateX(6px)')}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateX(0)')}
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', color: 'var(--color-hot-orange)' }}>
                 <Mail size={16} />
-                <span style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: isArabic ? '0.95rem' : 'var(--text-xs)', letterSpacing: isArabic ? '0.04em' : '0.2em', fontWeight: 700 }}>
+                <span style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: '0.85rem', fontWeight: 700 }}>
                   {t('contact_email')}
                 </span>
               </div>
               <ArrowUpRight size={14} color="var(--color-muted-beige)" />
             </div>
-            <span
-              style={{
-                fontFamily: 'var(--font-body)',
-                fontSize: 'clamp(1.1rem, 2.2vw, 1.6rem)',
-                fontWeight: 600,
-                letterSpacing: '0.02em',
-                color: 'var(--color-cream-white)',
-                wordBreak: 'break-all',
-                direction: 'ltr',
-                textAlign: isArabic ? 'right' : 'left',
-              }}
-            >
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: '1.1rem', color: 'var(--color-cream-white)', fontWeight: 600 }}>
               mala7.eg@gmail.com
             </span>
           </motion.a>
 
-          {/* Instagram Item */}
+          {/* LinkedIn Item */}
           <motion.a
-            href="https://www.instagram.com/eng_mala7"
+            href="https://www.linkedin.com/in/eng-mala7"
             target="_blank"
             rel="noopener noreferrer"
             initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.75, delay: 0.4, ease: 'easeOut' }}
+            transition={{ duration: 0.75, delay: 0.35 }}
             style={{
               display: 'flex',
               flexDirection: 'column',
               gap: 'var(--space-2)',
               textDecoration: 'none',
               color: 'inherit',
-              transition: 'transform 0.3s ease',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = isArabic ? 'translateX(-6px)' : 'translateX(6px)')}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateX(0)')}
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', color: 'var(--color-hot-orange)' }}>
-                <Instagram size={16} />
-                <span style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: isArabic ? '0.95rem' : 'var(--text-xs)', letterSpacing: isArabic ? '0.04em' : '0.2em', fontWeight: 700 }}>
-                  {t('contact_instagram')}
+                <Linkedin size={16} />
+                <span style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: '0.85rem', fontWeight: 700 }}>
+                  LINKEDIN
                 </span>
               </div>
               <ArrowUpRight size={14} color="var(--color-muted-beige)" />
             </div>
-            <span
-              style={{
-                fontFamily: 'var(--font-body)',
-                fontSize: 'clamp(1.1rem, 2.2vw, 1.6rem)',
-                fontWeight: 600,
-                letterSpacing: '0.02em',
-                color: 'var(--color-cream-white)',
-                direction: 'ltr',
-                textAlign: isArabic ? 'right' : 'left',
-              }}
-            >
-              @eng_mala7
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: '1.1rem', color: 'var(--color-cream-white)', fontWeight: 600 }}>
+              in/eng-mala7
             </span>
           </motion.a>
 
-          {/* Facebook Item */}
+          {/* GitHub Item */}
           <motion.a
-            href="https://www.facebook.com/share/1G3q7psqSd/?mibextid=wwXIfr"
+            href="https://github.com/engmalaaa7"
             target="_blank"
             rel="noopener noreferrer"
             initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.75, delay: 0.45, ease: 'easeOut' }}
+            transition={{ duration: 0.75, delay: 0.4 }}
             style={{
               display: 'flex',
               flexDirection: 'column',
               gap: 'var(--space-2)',
               textDecoration: 'none',
               color: 'inherit',
-              transition: 'transform 0.3s ease',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = isArabic ? 'translateX(-6px)' : 'translateX(6px)')}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateX(0)')}
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', color: 'var(--color-hot-orange)' }}>
-                <Facebook size={16} />
-                <span style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: isArabic ? '0.95rem' : 'var(--text-xs)', letterSpacing: isArabic ? '0.04em' : '0.2em', fontWeight: 700 }}>
-                  {t('contact_facebook')}
+                <Github size={16} />
+                <span style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: '0.85rem', fontWeight: 700 }}>
+                  GITHUB
                 </span>
               </div>
               <ArrowUpRight size={14} color="var(--color-muted-beige)" />
             </div>
-            <span
-              style={{
-                fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-                fontSize: 'clamp(1.1rem, 2.2vw, 1.6rem)',
-                fontWeight: 600,
-                letterSpacing: '0.02em',
-                color: 'var(--color-cream-white)',
-              }}
-            >
-              {isArabic ? 'أحمد الملاح' : 'Ahmed Al Malah'}
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: '1.1rem', color: 'var(--color-cream-white)', fontWeight: 600 }}>
+              github.com/engmalaaa7
             </span>
           </motion.a>
 
-          {/* Location / Direct CTA Item */}
-          <motion.div
+          {/* Behance Item */}
+          <motion.a
+            href="https://www.behance.net"
+            target="_blank"
+            rel="noopener noreferrer"
             initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.75, delay: 0.5, ease: 'easeOut' }}
+            transition={{ duration: 0.75, delay: 0.45 }}
             style={{
               display: 'flex',
               flexDirection: 'column',
               gap: 'var(--space-2)',
+              textDecoration: 'none',
+              color: 'inherit',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', color: 'var(--color-muted-beige)' }}>
-              <MapPin size={16} />
-              <span style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: isArabic ? '0.95rem' : 'var(--text-xs)', letterSpacing: isArabic ? '0.04em' : '0.2em', fontWeight: 700 }}>
-                {t('contact_location')}
-              </span>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', color: 'var(--color-hot-orange)' }}>
+                <Globe size={16} />
+                <span style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: '0.85rem', fontWeight: 700 }}>
+                  BEHANCE
+                </span>
+              </div>
+              <ArrowUpRight size={14} color="var(--color-muted-beige)" />
             </div>
-            <span
-              style={{
-                fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-                fontSize: isArabic ? '1.2rem' : 'clamp(1.1rem, 2.2vw, 1.6rem)',
-                fontWeight: 600,
-                letterSpacing: isArabic ? '0.02em' : '0.02em',
-                color: 'var(--color-cream-white)',
-                opacity: 0.9,
-              }}
-            >
-              {t('location_val')}
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: '1.1rem', color: 'var(--color-cream-white)', fontWeight: 600 }}>
+              behance.net/ahmedalmalah
             </span>
+          </motion.a>
+        </div>
 
-            {/* Clean Visual CTA Button */}
-            <a
-              href="mailto:mala7.eg@gmail.com"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                marginTop: 'var(--space-2)',
-                padding: '6px 14px',
-                backgroundColor: 'rgba(230, 74, 36, 0.15)',
-                border: '1px solid var(--color-hot-orange)',
-                borderRadius: 'var(--border-radius-sm)',
-                color: 'var(--color-cream-white)',
-                fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-                fontSize: '11px',
-                fontWeight: 700,
-                letterSpacing: isArabic ? '0.04em' : '0.14em',
-                textTransform: 'uppercase',
-                textDecoration: 'none',
-                width: 'fit-content',
-                transition: 'all 0.2s ease',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--color-hot-orange)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'rgba(230, 74, 36, 0.15)';
-              }}
-            >
-              <MessageSquare size={13} />
-              <span>{t('contact_connect_cta')}</span>
-            </a>
-          </motion.div>
+        {/* Location & Copyright Footer Line */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: 'var(--space-4)',
+            borderTop: '1px solid rgba(243, 237, 227, 0.08)',
+            paddingTop: 'var(--space-4)',
+            fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
+            fontSize: isArabic ? '0.95rem' : '0.85rem',
+            color: 'var(--color-muted-beige)',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <MapPin size={16} color="var(--color-hot-orange)" />
+            <span>{t('location_val')}</span>
+          </div>
+          <span>© 2026 AHMED AL MALAH. ALL RIGHTS RESERVED.</span>
         </div>
       </div>
     </section>

@@ -11,37 +11,37 @@ export const EducationOrigin: React.FC = () => {
   const areas = [
     {
       num: '01',
-      titleEn: 'THEORETICAL FOUNDATIONS',
-      titleAr: 'الأساس النظري والحوسبة',
-      descEn: 'Algorithms, Data Structures, Discrete Mathematics & Operating Systems',
-      descAr: 'الخوارزميات، وهياكل البيانات، والرياضيات المتقطعة، وأنظمة التشغيل',
+      titleEn: '01 — UNDERSTAND',
+      titleAr: '٠١ — الفهم والتحليل',
+      descEn: 'Understand the problem before starting the solution.',
+      descAr: 'أفهم المشكلة قبل ما أبدأ الحل.',
       icon: <BookOpen size={16} />,
       color: '#B9ADA1',
     },
     {
       num: '02',
-      titleEn: 'SYSTEMS ENGINEERING',
-      titleAr: 'معمارية وهندسة الأنظمة',
-      descEn: 'Software Architecture, Distributed Design & Scalable APIs',
-      descAr: 'معمارية البرمجيات، والأنظمة الموزعة، وتصميم واجهات البرمجة القابلة للتوسع',
+      titleEn: '02 — THINK',
+      titleAr: '٠٢ — التفكير والتوجيه',
+      descEn: 'Transform the problem into a clear direction.',
+      descAr: 'أحوّل الـProblem إلى Direction واضح.',
       icon: <Layers size={16} />,
       color: '#B82024',
     },
     {
       num: '03',
-      titleEn: 'APPLIED AI & DATA',
-      titleAr: 'الذكاء الاصطناعي والبيانات',
-      descEn: 'Machine Learning Pipelines, Agent Workflows & Statistical Analytics',
-      descAr: 'مسارات تعلم الآلة، ووكلاء الذكاء الاصطناعي، والتحليلات الإحصائية',
+      titleEn: '03 — BUILD',
+      titleAr: '٠٣ — البناء والتنفيذ',
+      descEn: 'Design meets Technology.',
+      descAr: 'التصميم يلتقي بالتكنولوجيا والبرمجة.',
       icon: <Cpu size={16} />,
       color: '#E64A24',
     },
     {
       num: '04',
-      titleEn: 'PRODUCT PRODUCTION',
-      titleAr: 'بناء وهندسة المنتجات',
-      descEn: 'Full-Stack Web Applications, Mobile Software & SaaS Architecture',
-      descAr: 'تطبيقات الويب الشاملة، والبرمجيات المتكاملة للهواتف المحمولة، وحلول SaaS',
+      titleEn: '04 — REFINE',
+      titleAr: '٠٤ — الإتقان والتطوير',
+      descEn: 'Small details make the big difference.',
+      descAr: 'التفاصيل الصغيرة بتصنع الفرق.',
       icon: <Box size={16} />,
       color: '#F27A32',
     },
@@ -116,7 +116,7 @@ export const EducationOrigin: React.FC = () => {
           }}
         >
           <span style={{ width: '18px', height: '1px', backgroundColor: 'var(--color-hot-orange)' }} />
-          {t('origin_eyebrow')}
+          {t('approach_eyebrow')}
         </motion.div>
 
         {/* Core Degree Block */}
@@ -145,16 +145,18 @@ export const EducationOrigin: React.FC = () => {
             transition={{ duration: 0.85, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             style={{
               fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
-              fontSize: isArabic ? 'clamp(3rem, 7.5vw, 6.5rem)' : 'clamp(3.5rem, 8.5vw, 7.5rem)',
+              fontSize: isArabic ? 'clamp(2.5rem, 6vw, 5.5rem)' : 'clamp(3rem, 7vw, 6rem)',
               lineHeight: isArabic ? 1.15 : 0.88,
               letterSpacing: isArabic ? '0.02em' : '0.04em',
               textTransform: 'uppercase',
               color: 'var(--color-cream-white)',
               margin: 0,
+              width: '100%',
+              whiteSpace: 'nowrap',
               fontWeight: isArabic ? 800 : 'normal',
             }}
           >
-            {t('origin_degree')}
+            {t('approach_title')}
           </motion.h2>
 
           {/* Academic Standing & Standing Badges: GPA 3.8 · Grade A+ · Alexandria, Egypt */}

@@ -42,7 +42,7 @@ export const DEFAULT_HERO_LAYERS: HeroLayerMap = {
     id: HeroLayerId.Layer5ParticlesWeb,
     name: 'Layer 5: Web / Particle Effects',
     zIndex: HERO_LAYER_Z_INDEX.layer5Particles,
-    interactive: true,
+    interactive: false, // particles/web lines need no pointer events — let them pass to Layer 3
     parallaxFactor: 0.6,
     initialOpacity: 1,
     enabled: true,

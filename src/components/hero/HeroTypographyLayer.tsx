@@ -17,9 +17,9 @@ export const HeroTypographyLayer: React.FC<HeroTypographyLayerProps> = ({
 }) => {
   const { isArabic, t } = useLanguage();
 
-  // Parallax translation for large display typography
-  const textX = useTransform(mouseX, [-1, 1], prefersReducedMotion ? [0, 0] : [10, -10]);
-  const textY = useTransform(mouseY, [-1, 1], prefersReducedMotion ? [0, 0] : [8, -8]);
+  // Gentle parallax translation for typography
+  const textX = useTransform(mouseX, [-1, 1], prefersReducedMotion ? [0, 0] : [6, -6]);
+  const textY = useTransform(mouseY, [-1, 1], prefersReducedMotion ? [0, 0] : [4, -4]);
 
   const isUnmasking = scrollProgress > 0.25 && scrollProgress < 0.75;
   const isUnmasked = scrollProgress >= 0.75;
@@ -35,7 +35,7 @@ export const HeroTypographyLayer: React.FC<HeroTypographyLayerProps> = ({
         alignItems: 'center',
         justifyContent: 'flex-end',
         pointerEvents: 'none',
-        padding: '0 var(--space-6) clamp(2.5rem, 5vh, 4rem)',
+        padding: '0 var(--space-6) clamp(4.5rem, 9vh, 6rem)',
         boxSizing: 'border-box',
       }}
     >
@@ -49,19 +49,20 @@ export const HeroTypographyLayer: React.FC<HeroTypographyLayerProps> = ({
           alignItems: 'center',
           textAlign: 'center',
           zIndex: 10,
-          maxWidth: '1100px',
+          maxWidth: '1200px',
+          width: '100%',
         }}
-        initial={{ opacity: 0, y: 25 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
       >
-        {/* Dynamic Eyebrow Stage Indicator */}
+        {/* Eyebrow Stage Badge */}
         <div
           style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: 'var(--space-3)',
-            padding: '6px 16px',
+            padding: '5px 16px',
             backgroundColor: isUnmasked
               ? 'rgba(184, 32, 36, 0.3)'
               : isUnmasking
@@ -111,11 +112,11 @@ export const HeroTypographyLayer: React.FC<HeroTypographyLayerProps> = ({
           </span>
         </div>
 
-        {/* Scaled Heading Supporting the Hero Character (Image >> Text) */}
+        {/* Hero Name Heading — Single line without wrapping */}
         <h1
           style={{
             fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
-            fontSize: isArabic ? 'clamp(2.5rem, 7.5vw, 5.8rem)' : 'clamp(2.8rem, 7.5vw, 6.4rem)',
+            fontSize: isArabic ? 'clamp(2.8rem, 7.5vw, 6.2rem)' : 'clamp(2.8rem, 7.5vw, 6.4rem)',
             lineHeight: isArabic ? 1.15 : 0.9,
             letterSpacing: isArabic ? '0.02em' : '0.04em',
             textTransform: 'uppercase',
@@ -123,6 +124,8 @@ export const HeroTypographyLayer: React.FC<HeroTypographyLayerProps> = ({
             textShadow: '0 15px 50px rgba(0, 0, 0, 0.98), 0 0 40px rgba(0, 0, 0, 0.9)',
             userSelect: 'none',
             margin: 0,
+            width: '100%',
+            whiteSpace: 'nowrap',
             fontWeight: isArabic ? 800 : 'normal',
             transition: 'text-shadow 0.4s ease',
           }}
@@ -132,26 +135,21 @@ export const HeroTypographyLayer: React.FC<HeroTypographyLayerProps> = ({
             : t('hero_heading_mask')}
         </h1>
 
-        {/* Subtitle Transition */}
+        {/* Subtitle / Role Tagline */}
         <div
           style={{
             fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-            fontSize: isArabic ? '1.05rem' : 'clamp(0.8rem, 1.2vw, 1.05rem)',
-            fontWeight: 500,
-            letterSpacing: isArabic ? '0.04em' : '0.16em',
+            fontSize: isArabic ? '1.1rem' : 'clamp(0.85rem, 1.3vw, 1.1rem)',
+            fontWeight: 600,
+            letterSpacing: isArabic ? '0.04em' : '0.18em',
             textTransform: 'uppercase',
-            color: isUnmasked ? 'var(--color-warm-orange)' : 'var(--color-muted-beige)',
+            color: 'var(--color-warm-orange)',
             marginTop: 'var(--space-2)',
-            opacity: 0.9,
+            opacity: 0.95,
             textShadow: '0 4px 12px rgba(0, 0, 0, 0.9)',
-            transition: 'color 0.4s ease, opacity 0.4s ease',
           }}
         >
-          {isUnmasked
-            ? t('hero_sub_unmasked')
-            : isUnmasking
-            ? t('hero_sub_unmasking')
-            : t('hero_sub_mask')}
+          {t('hero_sub_unmasked')}
         </div>
       </motion.div>
     </div>

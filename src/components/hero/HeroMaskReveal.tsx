@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-interface HeroMaskRevealProps {
+export interface HeroMaskRevealProps {
   progress: number; // 0.0 (Full Spider-Man) to 1.0 (Full Ahmed)
   cursorEyeProximity?: number; // 0 to 1
   prefersReducedMotion?: boolean;
@@ -41,6 +41,7 @@ export const HeroMaskReveal: React.FC<HeroMaskRevealProps> = ({
     width: '100%',
     height: '100%',
     objectFit: 'contain',
+    objectPosition: 'center 40%',
     filter: `drop-shadow(0 25px 50px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 35px rgba(230, 74, 36, ${revealProgress * 0.45}))`,
     maskImage: 'linear-gradient(to bottom, black 82%, transparent 100%)',
     WebkitMaskImage: 'linear-gradient(to bottom, black 82%, transparent 100%)',
@@ -147,3 +148,5 @@ export const HeroMaskReveal: React.FC<HeroMaskRevealProps> = ({
     </div>
   );
 };
+
+export default HeroMaskReveal;

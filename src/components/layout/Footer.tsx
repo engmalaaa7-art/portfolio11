@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
             color: 'var(--color-muted-beige)',
           }}
         >
-          {isArabic ? 'مهندس برمجيات وذكاء اصطناعي وبيانات' : 'AI · Software · Data & Business Systems'}
+          {isArabic ? 'مصمم · مطور · ذكاء اصطناعي' : 'Designer · Developer · AI'}
         </span>
       </div>
 

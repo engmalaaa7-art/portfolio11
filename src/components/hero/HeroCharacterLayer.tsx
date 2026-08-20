@@ -16,7 +16,7 @@ export const HeroCharacterLayer: React.FC<HeroCharacterLayerProps> = ({
   scrollProgress = 0,
   prefersReducedMotion = false,
 }) => {
-  // Cursor proximity & eye-region beam tracking (no whole-image shaking or translation)
+  // Cursor proximity & eye-region beam tracking (for subtle interactive eye glow)
   const [cursorProximity, setCursorProximity] = useState(0);
   const [cursorEyeBeam, setCursorEyeBeam] = useState({ x: 50, y: 38, active: false });
 
@@ -76,7 +76,7 @@ export const HeroCharacterLayer: React.FC<HeroCharacterLayerProps> = ({
         }}
       />
 
-      {/* FIXED COORDINATE ANCHOR CONTAINER (DRAMATICALLY SCALED UP FOR HEROIC VIEWPORT DOMINANCE):
+      {/* FIXED COORDINATE ANCHOR CONTAINER:
           Both Spider-Man base and Ahmed portrait share this exact container,
           guaranteeing ZERO upward translation or spatial drift during unmasking */}
       <motion.div
@@ -98,7 +98,7 @@ export const HeroCharacterLayer: React.FC<HeroCharacterLayerProps> = ({
         {/* FINAL 4K PRODUCTION SPIDER-MAN HERO ARTWORK */}
         <img
           src="/assets/images/spiderman-production.jpeg"
-          alt="Spider-Man Mask Stage Anchor — Final Production Asset"
+          alt="Spider-Man Mask Stage Anchor — Ahmed Al Malah"
           style={{
             position: 'absolute',
             inset: 0,
@@ -148,3 +148,5 @@ export const HeroCharacterLayer: React.FC<HeroCharacterLayerProps> = ({
     </div>
   );
 };
+
+export default HeroCharacterLayer;

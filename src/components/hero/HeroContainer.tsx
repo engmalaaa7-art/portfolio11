@@ -103,10 +103,10 @@ export const HeroContainer: React.FC = () => {
           <HeroParticles count={40} />
         </HeroLayer>
 
-        {/* Layer 8: Foreground Effects, Vignette, and Scroll Indicator */}
+        {/* Layer 8: Foreground Effects, Vignette, and Hover Reveal Indicator */}
         <HeroLayer config={DEFAULT_HERO_LAYERS[HeroLayerId.Layer8ForegroundEffects]}>
           <div className="bg-vignette" style={{ width: '100%', height: '100%', pointerEvents: 'none' }} />
-          {rawProgress < 0.75 && <ScrollUnmaskIndicator />}
+          {rawProgress < 0.9 && <ScrollUnmaskIndicator />}
         </HeroLayer>
       </section>
     </div>
