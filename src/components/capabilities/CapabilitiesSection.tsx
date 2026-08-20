@@ -217,7 +217,7 @@ const StaticLayout: React.FC = () => {
                   color: domain.accent,
                 }}
               >
-                {domain.number} // {isArabic ? domain.subtitleAr : domain.subtitleEn}
+                {isArabic ? `٠${domain.number.replace('0', '')}` : domain.number} // {isArabic ? domain.subtitleAr : domain.subtitleEn}
               </span>
             </div>
             <h3
@@ -306,8 +306,8 @@ const StaticLayout: React.FC = () => {
         </div>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(3rem, 8vw, 5rem)', lineHeight: 0.9, letterSpacing: '0.04em', color: 'var(--color-cream-white)' }}>
-            25–30
+          <div style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: 'clamp(3rem, 8vw, 5rem)', lineHeight: 0.9, letterSpacing: '0.04em', color: 'var(--color-cream-white)', fontWeight: isArabic ? 800 : 'normal' }}>
+            {isArabic ? '٢٥–٣٠' : '25–30'}
           </div>
           <div style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: '1rem', fontWeight: 600, color: 'var(--color-muted-beige)' }}>
             {t('scale_web')}
@@ -315,8 +315,8 @@ const StaticLayout: React.FC = () => {
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(3rem, 8vw, 5rem)', lineHeight: 0.9, letterSpacing: '0.04em', color: 'var(--color-cream-white)' }}>
-            4–5
+          <div style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: 'clamp(3rem, 8vw, 5rem)', lineHeight: 0.9, letterSpacing: '0.04em', color: 'var(--color-cream-white)', fontWeight: isArabic ? 800 : 'normal' }}>
+            {isArabic ? '٤–٥' : '4–5'}
           </div>
           <div style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: '1rem', fontWeight: 600, color: 'var(--color-muted-beige)' }}>
             {t('scale_mobile')}
@@ -324,8 +324,8 @@ const StaticLayout: React.FC = () => {
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(3rem, 8vw, 5rem)', lineHeight: 0.9, letterSpacing: '0.04em', color: 'var(--color-cream-white)' }}>
-            ~5
+          <div style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: 'clamp(3rem, 8vw, 5rem)', lineHeight: 0.9, letterSpacing: '0.04em', color: 'var(--color-cream-white)', fontWeight: isArabic ? 800 : 'normal' }}>
+            {isArabic ? '٥~' : '~5'}
           </div>
           <div style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: '1rem', fontWeight: 600, color: 'var(--color-muted-beige)' }}>
             {t('scale_ai')}
@@ -400,7 +400,7 @@ const DomainFrame: React.FC<DomainFrameProps> = ({
               color: domain.accent,
             }}
           >
-            {domain.number} // {isArabic ? domain.subtitleAr : domain.subtitleEn}
+            {isArabic ? `٠${domain.number.replace('0', '')}` : domain.number} // {isArabic ? domain.subtitleAr : domain.subtitleEn}
           </span>
         </div>
 
@@ -542,8 +542,8 @@ export const CapabilitiesSection: React.FC = () => {
     scrollYProgress,
     [0, 0.26, 0.48, 0.7, 0.88],
     isArabic
-      ? ['٠١ // هندسة الذكاء الاصطناعي', '٠٢ // هندسة البرمجيات', '٠٣ // البيانات والأعمال', '٠٤ // هندسة المنتجات', 'حجم الأعمال البرمجية']
-      : ['01 // AI ENGINEERING', '02 // SOFTWARE ENGINEERING', '03 // DATA & BUSINESS', '04 // PRODUCT ENGINEERING', 'ENGINEERING SCALE']
+      ? ['٠١ // التوجيه الفني والتصميم', '٠٢ // تطوير الواجهات الأمامية', '٠٣ // تطبيقات الهاتف', '٠٤ // البنية الخلفية', 'حجم الأعمال البرمجية']
+      : ['01 // ART DIRECTION & DESIGN', '02 // FRONTEND DEVELOPMENT', '03 // MOBILE DEVELOPMENT', '04 // BACKEND DEVELOPMENT', 'ENGINEERING SCALE']
   );
 
   if (shouldReduceMotion) {
@@ -794,14 +794,15 @@ export const CapabilitiesSection: React.FC = () => {
               >
                 <div
                   style={{
-                    fontFamily: 'var(--font-display)',
+                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
                     fontSize: 'clamp(3rem, 6.5vw, 5.5rem)',
                     lineHeight: 0.9,
                     letterSpacing: '0.04em',
                     color: 'var(--color-cream-white)',
+                    fontWeight: isArabic ? 800 : 'normal',
                   }}
                 >
-                  25–30
+                  {isArabic ? '٢٥–٣٠' : '25–30'}
                 </div>
                 <div
                   style={{
@@ -842,14 +843,15 @@ export const CapabilitiesSection: React.FC = () => {
               >
                 <div
                   style={{
-                    fontFamily: 'var(--font-display)',
+                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
                     fontSize: 'clamp(3rem, 6.5vw, 5.5rem)',
                     lineHeight: 0.9,
                     letterSpacing: '0.04em',
                     color: 'var(--color-cream-white)',
+                    fontWeight: isArabic ? 800 : 'normal',
                   }}
                 >
-                  4–5
+                  {isArabic ? '٤–٥' : '4–5'}
                 </div>
                 <div
                   style={{
@@ -890,14 +892,15 @@ export const CapabilitiesSection: React.FC = () => {
               >
                 <div
                   style={{
-                    fontFamily: 'var(--font-display)',
+                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
                     fontSize: 'clamp(3rem, 6.5vw, 5.5rem)',
                     lineHeight: 0.9,
                     letterSpacing: '0.04em',
                     color: 'var(--color-cream-white)',
+                    fontWeight: isArabic ? 800 : 'normal',
                   }}
                 >
-                  ~5
+                  {isArabic ? '٥~' : '~5'}
                 </div>
                 <div
                   style={{

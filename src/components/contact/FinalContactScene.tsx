@@ -175,7 +175,7 @@ export const FinalContactScene: React.FC = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', color: 'var(--color-hot-orange)' }}>
                 <Linkedin size={16} />
                 <span style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: '0.85rem', fontWeight: 700 }}>
-                  LINKEDIN
+                  {t('contact_linkedin')}
                 </span>
               </div>
               <ArrowUpRight size={14} color="var(--color-muted-beige)" />
@@ -206,7 +206,7 @@ export const FinalContactScene: React.FC = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', color: 'var(--color-hot-orange)' }}>
                 <Github size={16} />
                 <span style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: '0.85rem', fontWeight: 700 }}>
-                  GITHUB
+                  {t('contact_github')}
                 </span>
               </div>
               <ArrowUpRight size={14} color="var(--color-muted-beige)" />
@@ -237,7 +237,7 @@ export const FinalContactScene: React.FC = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', color: 'var(--color-hot-orange)' }}>
                 <Globe size={16} />
                 <span style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: '0.85rem', fontWeight: 700 }}>
-                  BEHANCE
+                  {t('contact_behance')}
                 </span>
               </div>
               <ArrowUpRight size={14} color="var(--color-muted-beige)" />
@@ -267,7 +267,11 @@ export const FinalContactScene: React.FC = () => {
             <MapPin size={16} color="var(--color-hot-orange)" />
             <span>{t('location_val')}</span>
           </div>
-          <span>© 2026 AHMED AL MALAH. ALL RIGHTS RESERVED.</span>
+          <span>
+            {isArabic
+              ? '© ٢٠٢٦ أحمد الملاح. جميع الحقوق محفوظة.'
+              : '© 2026 AHMED AL MALAH. ALL RIGHTS RESERVED.'}
+          </span>
         </div>
       </div>
     </section>

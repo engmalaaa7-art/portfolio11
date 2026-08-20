@@ -14,7 +14,7 @@ export const EducationOrigin: React.FC = () => {
       titleEn: '01 — UNDERSTAND',
       titleAr: '٠١ — الفهم والتحليل',
       descEn: 'Understand the problem before starting the solution.',
-      descAr: 'أفهم المشكلة قبل ما أبدأ الحل.',
+      descAr: 'فهم المشكلة بعمق قبل البدء في وضع الحلول.',
       icon: <BookOpen size={16} />,
       color: '#B9ADA1',
     },
@@ -23,7 +23,7 @@ export const EducationOrigin: React.FC = () => {
       titleEn: '02 — THINK',
       titleAr: '٠٢ — التفكير والتوجيه',
       descEn: 'Transform the problem into a clear direction.',
-      descAr: 'أحوّل الـProblem إلى Direction واضح.',
+      descAr: 'تحويل المشكلة إلى رؤية واتجاه استراتيجي واضح.',
       icon: <Layers size={16} />,
       color: '#B82024',
     },
@@ -41,7 +41,7 @@ export const EducationOrigin: React.FC = () => {
       titleEn: '04 — REFINE',
       titleAr: '٠٤ — الإتقان والتطوير',
       descEn: 'Small details make the big difference.',
-      descAr: 'التفاصيل الصغيرة بتصنع الفرق.',
+      descAr: 'التفاصيل الدقيقة تصنع الفارق الكبير.',
       icon: <Box size={16} />,
       color: '#F27A32',
     },
@@ -263,8 +263,8 @@ export const EducationOrigin: React.FC = () => {
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--text-xs)', color: area.color, fontWeight: 700, letterSpacing: '0.12em' }}>
-                  {area.num} //
+                <span style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: 'var(--text-xs)', color: area.color, fontWeight: 700, letterSpacing: '0.12em' }}>
+                  {isArabic ? `٠${area.num.replace('0', '')}` : area.num} //
                 </span>
                 <span style={{ color: area.color }}>{area.icon}</span>
               </div>

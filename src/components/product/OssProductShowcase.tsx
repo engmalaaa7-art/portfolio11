@@ -56,7 +56,15 @@ export const OssProductShowcase: React.FC = () => {
               whiteSpace: 'nowrap',
             }}
           >
-            OSS <span style={{ color: 'var(--color-warm-orange)', fontSize: '0.85em' }}>// أُسّ</span>
+            {isArabic ? (
+              <>
+                أُسّ <span style={{ color: 'var(--color-warm-orange)', fontSize: '0.85em' }}>// محرك بناء المواقع</span>
+              </>
+            ) : (
+              <>
+                OSS <span style={{ color: 'var(--color-warm-orange)', fontSize: '0.85em' }}>// AI ENGINE</span>
+              </>
+            )}
           </h2>
         </div>
 
@@ -156,7 +164,7 @@ export const OssProductShowcase: React.FC = () => {
                   color: 'var(--color-cream-white)',
                 }}
               >
-                {isArabic ? 'كود برمي إنتاجي' : 'Production-Grade Code'}
+                {isArabic ? 'كود برمجي إنتاجي' : 'Production-Grade Code'}
               </span>
             </div>
           </div>

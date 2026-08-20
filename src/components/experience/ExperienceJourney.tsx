@@ -312,7 +312,7 @@ export const ExperienceJourney: React.FC = () => {
                   fontWeight: 700,
                 }}
               >
-                <span>{exp.number} //</span>
+                <span>{isArabic ? `٠${idx + 1}` : exp.number} //</span>
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                   {exp.icon}
                   {isArabic ? exp.typeAr : exp.typeEn}

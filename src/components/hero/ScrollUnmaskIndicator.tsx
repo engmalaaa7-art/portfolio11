@@ -79,7 +79,7 @@ export const ScrollUnmaskIndicator: React.FC = () => {
           textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)',
         }}
       >
-        {isArabic ? 'مـرر لـلأسـفـل لـكـشـف الـهـويـة' : 'SCROLL TO UNMASK'}
+        {isArabic ? 'مرر للأسفل لكشف الهوية' : 'SCROLL TO UNMASK'}
       </span>
     </div>
   );
