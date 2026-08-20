@@ -106,13 +106,27 @@ export const translations: Record<string, { en: string; ar: string }> = {
   skills_eyebrow: { en: '06 // MY SKILLS', ar: '٠٦ // المهارات والتقنيات' },
   skills_title: { en: 'TECHNICAL & CREATIVE TOOLKIT', ar: 'الأدوات والتقنيات' },
 
-  // Section 07: My Approach
+  // Section 06: Impact & Community
+  impact_eyebrow: { en: '06 // IMPACT & REACH', ar: '٠٦ // الأثر والمجتمع' },
+  impact_heading: { en: 'PEOPLE REACHED', ar: 'مستفيد ومشارك' },
+  impact_sub_badge: { en: '5,000+ LEARNERS IN AI & GRAPHIC DESIGN', ar: '٥,٠٠٠+ متدرب في ورش الذكاء الاصطناعي والتصميم' },
+  impact_desc: {
+    en: 'Led educational sessions, technical workshops, and digital content initiatives across multiple Egyptian governorates, empowering thousands of youth with skills in Artificial Intelligence and Design.',
+    ar: 'قيادة ورش عمل وجلسات تدريبية ومبادرات محتوى رقمي شملت محافظات متعددة، لتمكين آلاف الشباب من مهارات الذكاء الاصطناعي والتصميم.',
+  },
+
+  // Section 07: My Approach & Education
+  origin_university: { en: 'FACULTY OF ARTS // GEOGRAPHY', ar: 'كلية الآداب // قسم الجغرافيا' },
+  origin_desc: {
+    en: 'Combining analytical discipline with visual direction and software architecture to build memorable digital solutions.',
+    ar: 'الجمع بين الدقة التحليلية والتوجيه البصري وهندسة البرمجيات لبناء حلول رقمية مؤثرة.',
+  },
   approach_eyebrow: { en: '07 // MY APPROACH', ar: '٠٧ // منهجية العمل' },
   approach_title: { en: 'HOW I THINK & BUILD', ar: 'كيف أفكر وأبني' },
   approach_01_title: { en: '01 — UNDERSTAND', ar: '٠١ — الفهم والتحليل' },
   approach_01_desc: { en: 'Understand the problem before starting the solution.', ar: 'أفهم المشكلة قبل ما أبدأ الحل.' },
   approach_02_title: { en: '02 — THINK', ar: '٠٢ — التفكير والتوجيه' },
-  approach_02_desc: { en: 'Transform the problem into a clear direction.', ar: 'أحوّل الـProblem إلى Direction واضح.' },
+  approach_02_desc: { en: 'Transform the problem into a clear direction.', ar: 'أحوّل المشكلة إلى اتجاه ورؤية واضحة.' },
   approach_03_title: { en: '03 — BUILD', ar: '٠٣ — البناء والتنفيذ' },
   approach_03_desc: { en: 'Design meets Technology.', ar: 'التصميم يلتقي بالتكنولوجيا والبرمجة.' },
   approach_04_title: { en: '04 — REFINE', ar: '٠٤ — الإتقان والتطوير' },

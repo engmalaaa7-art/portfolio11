@@ -31,3 +31,6 @@ dist-ssr
 # Temporary and capture files
 .tempmediaStorage
 screencapture-*.png
+exports/
+
+.vercel
