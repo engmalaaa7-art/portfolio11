@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { LanguageProvider } from '@/context/LanguageContext';
 import { Header } from '@/components/layout/Header';
 import { CinematicIntroOverlay } from '@/components/intro/CinematicIntroOverlay';
-import { HeroContainer } from '@/components/hero/HeroContainer';
-import { UnmaskedIntro } from '@/components/intro/UnmaskedIntro';
+import { CinematicHeroStage } from '@/components/hero/CinematicHeroStage';
+import { AboutIdentity } from '@/components/intro/AboutIdentity';
 import { OssProductShowcase } from '@/components/product/OssProductShowcase';
 import { ExperienceJourney } from '@/components/experience/ExperienceJourney';
 import { CapabilitiesSection } from '@/components/capabilities/CapabilitiesSection';
@@ -18,7 +18,7 @@ const AppContent: React.FC = () => {
   const [introFinished, setIntroFinished] = useState(false);
 
   return (
-    <div className="app-root" style={{ position: 'relative', backgroundColor: 'var(--color-deep-black)' }}>
+    <div className="app-root" style={{ position: 'relative', backgroundColor: '#070A10' }}>
       <NoiseOverlay />
       
       {/* Cinematic Opening Prologue */}
@@ -29,41 +29,41 @@ const AppContent: React.FC = () => {
       <Header />
       
       <main style={{ position: 'relative', width: '100%' }}>
-        {/* World 01: The Mask (Hero Stage) */}
-        <HeroContainer />
+        {/* 01: Hero Stage */}
+        <CinematicHeroStage />
 
-        {/* World 02: The Person (Identity Statement) */}
-        <SceneTransition id="world-person">
-          <UnmaskedIntro />
+        {/* 02: About Me & Identity */}
+        <SceneTransition id="world-about">
+          <AboutIdentity />
         </SceneTransition>
 
-        {/* World 03: The Builder (OSS Product Reveal) */}
-        <SceneTransition id="world-builder">
+        {/* 03: Flagship OSS AI Product */}
+        <SceneTransition id="world-product">
           <OssProductShowcase />
         </SceneTransition>
 
-        {/* World 04: The Journey (Career Timeline) */}
+        {/* 04: Career Timeline & Journey */}
         <SceneTransition id="world-journey">
           <ExperienceJourney />
         </SceneTransition>
 
-        {/* World 05: The System (Engineering Profile & Scale) */}
-        <SceneTransition id="world-system">
+        {/* 05: Engineering Capabilities & Scale */}
+        <SceneTransition id="world-capabilities">
           <CapabilitiesSection />
         </SceneTransition>
 
-        {/* World 06: The Impact (13,000+ People Reached) */}
+        {/* 06: Impact & Reach (13,000+) */}
         <SceneTransition id="world-impact">
           <CinematicImpactMoment />
         </SceneTransition>
 
-        {/* World 07: The Origin (Academic Foundation) */}
-        <SceneTransition id="world-origin">
+        {/* 07: Academic Foundation & Methodology */}
+        <SceneTransition id="world-methodology">
           <EducationOrigin />
         </SceneTransition>
 
-        {/* World 08: Final Scene (Let's Build Something & Contact) */}
-        <SceneTransition id="world-final">
+        {/* 08: Final Scene & Contact */}
+        <SceneTransition id="world-contact">
           <FinalContactScene />
         </SceneTransition>
       </main>

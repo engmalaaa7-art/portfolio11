@@ -9,9 +9,9 @@ export const Footer: React.FC = () => {
       style={{
         position: 'relative',
         zIndex: 10,
-        backgroundColor: 'var(--color-deep-black)',
-        borderTop: 'var(--border-subtle)',
-        padding: 'var(--space-8) var(--space-8)',
+        backgroundColor: 'var(--color-canvas)',
+        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+        padding: 'var(--space-8) clamp(1.5rem, 4vw, 3.5rem)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -22,23 +22,26 @@ export const Footer: React.FC = () => {
       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-1)' }}>
         <span
           style={{
-            fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
+            fontFamily: isArabic ? 'var(--font-arabic-display)' : 'var(--font-display)',
             fontSize: isArabic ? '1.3rem' : 'var(--text-lg)',
-            letterSpacing: isArabic ? '0.02em' : '0.05em',
-            color: 'var(--color-cream-white)',
-            fontWeight: isArabic ? 700 : 'normal',
+            letterSpacing: isArabic ? '0.01em' : '0.04em',
+            color: 'var(--color-text-primary)',
+            fontWeight: isArabic ? 800 : 700,
+            textTransform: 'uppercase',
           }}
         >
-          {isArabic ? 'أحمد الملاح' : 'AHMED AL MALAH'}
+          {isArabic ? 'أحمد المـلاح' : 'AHMED AL MALAH'}
         </span>
         <span
           style={{
             fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
             fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
-            color: 'var(--color-muted-beige)',
+            color: 'var(--color-text-muted)',
+            letterSpacing: isArabic ? '0.02em' : '0.14em',
+            textTransform: 'uppercase',
           }}
         >
-          {isArabic ? 'مصمم · مطور · ذكاء اصطناعي' : 'Designer · Developer · AI'}
+          {isArabic ? 'هندسة برمجيات · توجيه إبداعي · ذكاء اصطناعي' : 'Software Engineering · Creative Direction · AI'}
         </span>
       </div>
 
@@ -46,7 +49,7 @@ export const Footer: React.FC = () => {
         style={{
           fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
           fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
-          color: 'var(--color-muted-beige)',
+          color: 'var(--color-text-muted)',
         }}
       >
         {isArabic

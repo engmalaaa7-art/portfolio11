@@ -27,19 +27,19 @@ export const CinematicImpactMoment: React.FC = () => {
         aria-label="Impact Moment — 13,000+ People Reached and 5,000+ Learners in AI and Design"
         style={{
           position: 'relative',
-          backgroundColor: 'var(--color-deep-black)',
+          backgroundColor: 'var(--color-canvas)',
           padding: 'clamp(5rem, 10vh, 8rem) var(--space-8)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
           textAlign: 'center',
-          borderTop: '1px solid rgba(184, 32, 36, 0.2)',
+          borderTop: '1px solid rgba(29, 78, 216, 0.25)',
         }}
       >
         <span
           style={{
-            color: 'var(--color-hot-orange)',
+            color: 'var(--color-solar-amber)',
             fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
             fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
             letterSpacing: isArabic ? '0.04em' : '0.25em',
@@ -53,12 +53,13 @@ export const CinematicImpactMoment: React.FC = () => {
 
         <h2
           style={{
-            fontFamily: 'var(--font-display)',
+            fontFamily: isArabic ? 'var(--font-arabic-display)' : 'var(--font-display)',
             fontSize: 'clamp(5rem, 15vw, 11rem)',
             lineHeight: 0.85,
             letterSpacing: '0.04em',
-            color: 'var(--color-cream-white)',
+            color: 'var(--color-text-primary)',
             margin: 0,
+            fontWeight: isArabic ? 900 : 800,
           }}
         >
           {isArabic ? '+١٣,٠٠٠' : '13,000+'}
@@ -71,7 +72,7 @@ export const CinematicImpactMoment: React.FC = () => {
             fontWeight: 700,
             letterSpacing: isArabic ? '0.02em' : '0.18em',
             textTransform: 'uppercase',
-            color: 'var(--color-warm-orange)',
+            color: 'var(--color-electric-cyan)',
             marginTop: 'var(--space-2)',
           }}
         >
@@ -85,14 +86,14 @@ export const CinematicImpactMoment: React.FC = () => {
             alignItems: 'center',
             gap: '8px',
             marginTop: 'var(--space-3)',
-            padding: '4px 14px',
-            backgroundColor: 'rgba(230, 74, 36, 0.12)',
-            border: '1px solid rgba(230, 74, 36, 0.35)',
-            borderRadius: '20px',
+            padding: '4px 16px',
+            backgroundColor: 'rgba(245, 138, 7, 0.12)',
+            border: '1px solid rgba(245, 138, 7, 0.4)',
+            borderRadius: 'var(--border-radius-full)',
             fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
             fontSize: '11px',
             fontWeight: 700,
-            color: 'var(--color-hot-orange)',
+            color: 'var(--color-solar-amber)',
             letterSpacing: isArabic ? '0.02em' : '0.14em',
             textTransform: 'uppercase',
           }}
@@ -104,9 +105,9 @@ export const CinematicImpactMoment: React.FC = () => {
           style={{
             fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
             fontSize: isArabic ? '1.1rem' : 'clamp(1rem, 1.6vw, 1.25rem)',
-            fontWeight: isArabic ? 400 : 300,
-            lineHeight: 1.65,
-            color: 'var(--color-muted-beige)',
+            fontWeight: 400,
+            lineHeight: 1.75,
+            color: 'var(--color-text-secondary)',
             maxWidth: '680px',
             marginTop: 'var(--space-4)',
           }}
@@ -126,8 +127,8 @@ export const CinematicImpactMoment: React.FC = () => {
         position: 'relative',
         width: '100%',
         height: '200vh',
-        backgroundColor: 'var(--color-deep-black)',
-        borderTop: '1px solid rgba(184, 32, 36, 0.2)',
+        backgroundColor: 'var(--color-canvas)',
+        borderTop: '1px solid rgba(29, 78, 216, 0.25)',
       }}
     >
       {/* Sticky Cinematic Viewport Stage */}
@@ -155,17 +156,17 @@ export const CinematicImpactMoment: React.FC = () => {
             width: '100%',
             height: '100%',
             pointerEvents: 'none',
-            opacity: 0.22,
+            opacity: 0.18,
           }}
           viewBox="0 0 1000 600"
           preserveAspectRatio="none"
         >
-          <line x1="0" y1="0" x2="500" y2="300" stroke="var(--color-hot-orange)" strokeDasharray="4 6" />
-          <line x1="1000" y1="0" x2="500" y2="300" stroke="var(--color-hot-orange)" strokeDasharray="4 6" />
-          <line x1="0" y1="600" x2="500" y2="300" stroke="var(--color-hot-orange)" strokeDasharray="4 6" />
-          <line x1="1000" y1="600" x2="500" y2="300" stroke="var(--color-hot-orange)" strokeDasharray="4 6" />
-          <circle cx="500" cy="300" r="180" stroke="var(--color-cinematic-red)" strokeWidth="0.5" fill="none" />
-          <circle cx="500" cy="300" r="280" stroke="var(--color-hot-orange)" strokeWidth="0.3" strokeDasharray="2 4" fill="none" />
+          <line x1="0" y1="0" x2="500" y2="300" stroke="var(--color-electric-cyan)" strokeDasharray="4 6" />
+          <line x1="1000" y1="0" x2="500" y2="300" stroke="var(--color-electric-cyan)" strokeDasharray="4 6" />
+          <line x1="0" y1="600" x2="500" y2="300" stroke="var(--color-cobalt-light)" strokeDasharray="4 6" />
+          <line x1="1000" y1="600" x2="500" y2="300" stroke="var(--color-cobalt-light)" strokeDasharray="4 6" />
+          <circle cx="500" cy="300" r="180" stroke="var(--color-cobalt-light)" strokeWidth="0.5" fill="none" />
+          <circle cx="500" cy="300" r="280" stroke="var(--color-solar-amber)" strokeWidth="0.3" strokeDasharray="2 4" fill="none" />
         </svg>
 
         {/* Ambient Center Radial Glow */}
@@ -178,8 +179,8 @@ export const CinematicImpactMoment: React.FC = () => {
             width: 'min(700px, 90vw)',
             height: 'min(500px, 60vh)',
             borderRadius: '50%',
-            background: 'radial-gradient(circle at center, rgba(230, 74, 36, 0.14) 0%, rgba(184, 32, 36, 0.08) 50%, transparent 80%)',
-            filter: 'blur(60px)',
+            background: 'radial-gradient(circle at center, rgba(29, 78, 216, 0.22) 0%, rgba(245, 138, 7, 0.12) 50%, transparent 80%)',
+            filter: 'blur(70px)',
             pointerEvents: 'none',
           }}
         />
@@ -196,12 +197,12 @@ export const CinematicImpactMoment: React.FC = () => {
             fontWeight: 700,
             letterSpacing: isArabic ? '0.04em' : '0.25em',
             textTransform: 'uppercase',
-            color: 'var(--color-hot-orange)',
+            color: 'var(--color-solar-amber)',
             marginBottom: 'var(--space-2)',
             zIndex: 10,
           }}
         >
-          <span style={{ width: '16px', height: '1px', backgroundColor: 'var(--color-hot-orange)' }} />
+          <span style={{ width: '16px', height: '1px', backgroundColor: 'var(--color-solar-amber)' }} />
           {t('impact_eyebrow')}
         </motion.div>
 
@@ -211,14 +212,15 @@ export const CinematicImpactMoment: React.FC = () => {
             opacity: opacityProgress,
             scale: scaleProgress,
             letterSpacing: letterSpacingProgress,
-            fontFamily: 'var(--font-display)',
+            fontFamily: isArabic ? 'var(--font-arabic-display)' : 'var(--font-display)',
             fontSize: 'clamp(5.5rem, 16vw, 13.5rem)',
             lineHeight: 0.85,
             textTransform: 'uppercase',
-            color: 'var(--color-cream-white)',
+            color: 'var(--color-text-primary)',
             margin: 0,
-            textShadow: '0 20px 60px rgba(0,0,0,0.95), 0 0 50px rgba(242, 122, 50, 0.35)',
+            textShadow: '0 20px 60px rgba(0,0,0,0.95), 0 0 50px rgba(29, 78, 216, 0.45)',
             zIndex: 10,
+            fontWeight: isArabic ? 900 : 800,
             willChange: 'transform, opacity, letter-spacing',
           }}
         >
@@ -234,7 +236,7 @@ export const CinematicImpactMoment: React.FC = () => {
             fontWeight: 700,
             letterSpacing: isArabic ? '0.02em' : '0.2em',
             textTransform: 'uppercase',
-            color: 'var(--color-warm-orange)',
+            color: 'var(--color-electric-cyan)',
             marginTop: 'var(--space-2)',
             zIndex: 10,
           }}
@@ -250,14 +252,14 @@ export const CinematicImpactMoment: React.FC = () => {
             alignItems: 'center',
             gap: '8px',
             marginTop: 'var(--space-3)',
-            padding: '4px 16px',
-            backgroundColor: 'rgba(230, 74, 36, 0.12)',
-            border: '1px solid rgba(230, 74, 36, 0.35)',
-            borderRadius: '20px',
+            padding: '4px 18px',
+            backgroundColor: 'rgba(245, 138, 7, 0.12)',
+            border: '1px solid rgba(245, 138, 7, 0.45)',
+            borderRadius: 'var(--border-radius-full)',
             fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
             fontSize: '11px',
             fontWeight: 700,
-            color: 'var(--color-hot-orange)',
+            color: 'var(--color-solar-amber)',
             letterSpacing: isArabic ? '0.02em' : '0.14em',
             textTransform: 'uppercase',
             zIndex: 10,
@@ -272,9 +274,9 @@ export const CinematicImpactMoment: React.FC = () => {
             opacity: opacityProgress,
             fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
             fontSize: isArabic ? '1.15rem' : 'clamp(1rem, 1.6vw, 1.25rem)',
-            fontWeight: isArabic ? 400 : 300,
-            lineHeight: isArabic ? 1.75 : 1.6,
-            color: 'var(--color-cream-white)',
+            fontWeight: 400,
+            lineHeight: 1.75,
+            color: 'var(--color-text-secondary)',
             maxWidth: '680px',
             margin: 'var(--space-3) 0 0 0',
             zIndex: 10,

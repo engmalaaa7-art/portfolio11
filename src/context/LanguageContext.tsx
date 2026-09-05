@@ -12,35 +12,35 @@ interface LanguageContextType {
 export const translations: Record<string, { en: string; ar: string }> = {
   // Navigation & Meta
   site_title: {
-    en: 'Ahmed Al Malah — Designer · Developer · AI',
-    ar: 'أحمد الملاح — مصمم · مطور · ذكاء اصطناعي',
+    en: 'Ahmed Al Malah — Software Engineer & Creative Technologist',
+    ar: 'أحمد الملاح — مهندس برمجيات ومبتكر تقني',
   },
   site_desc: {
-    en: 'Portfolio of Ahmed Al Malah — Designer, Developer & AI Specialist.',
-    ar: 'المعرض الشخصي لأحمد الملاح — مصمم ومطور ومتخصص في الذكاء الاصطناعي.',
+    en: 'Portfolio of Ahmed Al Malah — Software Engineering, Creative Direction, UI/UX & Applied AI Systems.',
+    ar: 'المعرض الشخصي لأحمد الملاح — هندسة البرمجيات، التوجيه الإبداعي، وتطوير أنظمة الذكاء الاصطناعي.',
   },
   engineer_tag: {
-    en: 'DESIGNER · DEVELOPER · AI',
-    ar: 'مصمم · مطور · ذكاء اصطناعي',
+    en: 'SOFTWARE ENGINEER · CREATIVE DIRECTION · AI',
+    ar: 'هندسة برمجيات · توجيه إبداعي · ذكاء اصطناعي',
   },
   nav_identity: { en: 'ABOUT', ar: 'عن أحمد' },
   nav_oss: { en: 'OSS // ENGINE', ar: 'أُسّ // المحرك' },
   nav_journey: { en: 'EXPERIENCE', ar: 'الخبرات' },
-  nav_profile: { en: 'SKILLS & SERVICES', ar: 'المهارات والخدمات' },
+  nav_profile: { en: 'CAPABILITIES', ar: 'القدرات والمهارات' },
   nav_contact: { en: 'CONTACT', ar: 'تواصل' },
 
   // Intro Prologue
   intro_eyebrow: {
-    en: 'PROLOGUE // THE ARCHITECTURE OF IDENTITY',
-    ar: 'المقدمة // معمارية الهوية',
+    en: 'PROLOGUE // THE ARCHITECTURE OF CREATION',
+    ar: 'المقدمة // معمارية الابتكار',
   },
   intro_statement_1: {
-    en: 'EVERY HERO HAS A STORY BEHIND THE MASK.',
-    ar: 'لكل بطل قصة خلف القناع.',
+    en: 'EVERY MEANINGFUL BUILD BEGINS WITH A BOLD VISION.',
+    ar: 'كل عمل ذي معنى يبدأ برؤية استثنائية.',
   },
   intro_statement_2: {
-    en: 'MINE IS WRITTEN IN CODE & DESIGN.',
-    ar: 'وقصتي كُتبت بالتصميم والكود.',
+    en: 'IMAGINE IT... AND I WILL BUILD IT.',
+    ar: 'تخيّلها... وأنا أبنيها.',
   },
   intro_skip: {
     en: 'CLICK OR ESC TO ENTER',
@@ -48,14 +48,17 @@ export const translations: Record<string, { en: string; ar: string }> = {
   },
 
   // World 01: Hero (Cover)
-  hero_eyebrow_mask: { en: '01 // THE MASK', ar: '٠١ // القناع' },
-  hero_eyebrow_unmasking: { en: 'UNMASKING // REVEALING THE DESIGNER & DEVELOPER', ar: 'كشف الهوية // المصمم والمطور' },
-  hero_eyebrow_unmasked: { en: '01 // THE PERSON', ar: '٠١ // الشخص خلف القناع' },
-  hero_heading_mask: { en: 'THE MASK', ar: 'القناع' },
-  hero_heading_unmasked: { en: 'AHMED AL MALAH', ar: 'أحمد الملاح' },
-  hero_sub_mask: { en: 'DESIGNER · DEVELOPER · AI', ar: 'مصمم · مطور · ذكاء اصطناعي' },
-  hero_sub_unmasking: { en: 'DESIGN × TECHNOLOGY × AI', ar: 'تصميم × تكنولوجيا × ذكاء اصطناعي' },
-  hero_sub_unmasked: { en: 'DESIGNER · DEVELOPER · AI', ar: 'مصمم · مطور · ذكاء اصطناعي' },
+  hero_badge: { en: 'PORTFOLIO', ar: 'بورتفوليو' },
+  hero_eyebrow_mask: { en: '01 // ARCHITECTURAL IDENTITY', ar: '٠١ // معمارية الهوية' },
+  hero_eyebrow_unmasking: { en: 'CREATIVE DIRECTION × ENGINEERING', ar: 'التوجيه الإبداعي × الهندسة البرمجية' },
+  hero_eyebrow_unmasked: { en: '01 // AHMED AL MALAH', ar: '٠١ // أحمد المـلاح' },
+  hero_heading_mask: { en: 'AHMED AL MALAH', ar: 'أحمد المـلاح' },
+  hero_heading_unmasked: { en: 'AHMED AL MALAH', ar: 'أحمد المـلاح' },
+  hero_signature_tagline: { en: 'Imagine it... and I build it.', ar: 'تخيّلها.. وأنا أبنيها.' },
+  hero_script_role: { en: 'software engineer', ar: 'software engineer' },
+  hero_sub_mask: { en: 'SOFTWARE ENGINEER · CREATIVE DIRECTION · APPLIED AI', ar: 'مهندس برمجيات · توجيه إبداعي · ذكاء اصطناعي تطبيقي' },
+  hero_sub_unmasking: { en: 'IMAGINE IT... AND I BUILD IT.', ar: 'تخيّلها... وأنا أبنيها.' },
+  hero_sub_unmasked: { en: 'SOFTWARE ENGINEER · CREATIVE DIRECTION · APPLIED AI', ar: 'مهندس برمجيات · توجيه إبداعي · ذكاء اصطناعي تطبيقي' },
   hero_portfolio_year: { en: 'PORTFOLIO — 2026', ar: 'المعرض الشخصي — ٢٠٢٦' },
 
   // World 02: About Me & Currently
@@ -72,7 +75,7 @@ export const translations: Record<string, { en: string; ar: string }> = {
     ar: 'أعمل حالياً على تعزيز خبرتي في تطوير منتجات الذكاء الاصطناعي، وبناء حلول تجمع بين جمالية التصميم وقوة التنفيذ البرمجي.',
   },
   person_currently_tag: { en: 'CURRENTLY // DESIGN × CODE × AI', ar: 'حالياً // تصميم × برمجة × ذكاء اصطناعي' },
-  person_location: { en: 'CAIRO / ALEXANDRIA, EGYPT', ar: 'القاهرة / الإسكندرية، مصر' },
+  person_location: { en: ' / ALEXANDRIA, EGYPT', ar: ' / الإسكندرية، مصر' },
 
   // Section 03: By The Numbers
   numbers_eyebrow: { en: '03 // BY THE NUMBERS', ar: '٠٣ // بالأرقام' },
@@ -175,49 +178,32 @@ export const translations: Record<string, { en: string; ar: string }> = {
   contact_behance: { en: 'BEHANCE', ar: 'بيهانس' },
   contact_github: { en: 'GITHUB', ar: 'جيت هاب' },
   contact_location: { en: 'LOCATION', ar: 'الموقع الجغرافي' },
-  location_val: { en: 'CAIRO / ALEXANDRIA, EGYPT', ar: 'القاهرة / الإسكندرية، مصر' },
+  location_val: { en: ' / ALEXANDRIA, EGYPT', ar: ' / الإسكندرية، مصر' },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [lang, setLangState] = useState<Language>(() => {
-    if (typeof window !== 'undefined') {
-      const path = window.location.pathname;
-      if (path.startsWith('/ar')) return 'ar';
-      const stored = localStorage.getItem('ahmed_portfolio_lang');
-      if (stored === 'ar' || stored === 'en') return stored;
-    }
-    return 'en';
-  });
+  const [lang] = useState<Language>('ar');
+  const isArabic = true;
 
-  const isArabic = lang === 'ar';
-
-  const setLang = (newLang: Language) => {
-    setLangState(newLang);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('ahmed_portfolio_lang', newLang);
-      document.documentElement.lang = newLang;
-      document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
-
-      if (newLang === 'ar' && !window.location.pathname.startsWith('/ar')) {
-        window.history.pushState(null, '', '/ar');
-      } else if (newLang === 'en' && window.location.pathname.startsWith('/ar')) {
-        window.history.pushState(null, '', '/');
-      }
-    }
+  const setLang = () => {
+    // Permanent Arabic mode
   };
 
   useEffect(() => {
-    document.documentElement.lang = lang;
-    document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
-    document.title = translations.site_title[lang] || 'Ahmed Al Malah';
-  }, [lang, isArabic]);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('ahmed_portfolio_lang', 'ar');
+      document.documentElement.lang = 'ar';
+      document.documentElement.dir = 'rtl';
+      document.title = translations.site_title.ar || 'أحمد المـلاح — مهندس برمجيات ومبتكر تقني';
+    }
+  }, []);
 
   const t = (key: string): string => {
     const entry = translations[key];
     if (!entry) return key;
-    return entry[lang] || entry.en;
+    return entry.ar || entry.en;
   };
 
   return (

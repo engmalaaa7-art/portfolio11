@@ -1,25 +1,25 @@
 @import './tokens.css';
 
-/* Supplied Production Fonts */
+/* Supplied Brand Fonts */
 @font-face {
-  font-family: 'Homoarakhn';
-  src: url('/assets/fonts/Homoarakhn.ttf') format('truetype');
+  font-family: 'AhmedArabicDisplay';
+  src: url('/assets/fonts/arabic-display.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'CombackHome';
-  src: url('/assets/fonts/CombackHome.ttf') format('truetype');
+  font-family: 'AhmedEnglishDisplay';
+  src: url('/assets/fonts/english-display-2.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'ZainMob';
-  src: url('/assets/fonts/ZainMob.ttf') format('truetype');
+  font-family: 'AhmedEnglishDisplayAlt';
+  src: url('/assets/fonts/english-display-1.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -34,8 +34,8 @@
 
 html {
   color-scheme: dark;
-  background-color: var(--color-deep-black);
-  color: var(--color-cream-white);
+  background-color: var(--color-canvas);
+  color: var(--color-text-primary);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -46,17 +46,27 @@ html {
 
 body {
   min-height: 100vh;
-  background-color: var(--color-deep-black);
-  color: var(--color-cream-white);
-  line-height: 1.5;
+  background-color: var(--color-canvas);
+  color: var(--color-text-primary);
+  line-height: 1.6;
   overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  letter-spacing: 0.05em;
-  font-weight: 400;
+  letter-spacing: 0.03em;
+  font-weight: 700;
   text-transform: uppercase;
+}
+
+[dir="rtl"] h1, 
+[dir="rtl"] h2, 
+[dir="rtl"] h3, 
+[dir="rtl"] h4, 
+[dir="rtl"] h5, 
+[dir="rtl"] h6 {
+  font-family: var(--font-arabic-display);
+  letter-spacing: 0.01em;
 }
 
 a {
@@ -78,24 +88,24 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-deep-black);
+  background: var(--color-canvas);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-deep-crimson);
+  background: rgba(29, 78, 216, 0.45);
   border-radius: var(--border-radius-sm);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-cinematic-red);
+  background: var(--color-solar-amber);
 }
 
-/* Subtle Web Line Pattern Background Utility */
+/* Subtle Blueprint Grid Background Utility */
 .bg-web-grid {
   background-image: 
-    linear-gradient(to right, rgba(184, 32, 36, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(184, 32, 36, 0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(to right, rgba(56, 189, 248, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
 /* Vignette Atmospheric Utility */
@@ -103,9 +113,30 @@ button {
   background: radial-gradient(
     circle at center,
     transparent 20%,
-    rgba(9, 8, 10, 0.8) 70%,
-    rgba(9, 8, 10, 0.98) 100%
+    rgba(7, 10, 16, 0.65) 65%,
+    rgba(7, 10, 16, 0.98) 100%
   );
+}
+
+/* Glassmorphism Card Utility */
+.glass-panel {
+  background: var(--color-surface-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--border-card);
+  border-radius: var(--border-radius-md);
+}
+
+/* Handcrafted Signature Script Utilities */
+.script-signature {
+  font-family: var(--font-script);
+  font-weight: 600;
+  color: var(--color-electric-cyan);
+  text-shadow: 0 0 20px var(--color-cyan-glow);
+}
+
+[dir="rtl"] .script-signature {
+  font-family: var(--font-arabic-script);
 }
 
 /* Navigation Responsive Utilities */

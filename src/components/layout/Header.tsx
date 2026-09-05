@@ -1,8 +1,9 @@
 import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import { BrandMonogram } from '@/components/common/BrandMonogram';
 
 export const Header: React.FC = () => {
-  const { lang, setLang, isArabic, t } = useLanguage();
+  const { isArabic, t } = useLanguage();
 
   return (
     <header
@@ -12,39 +13,44 @@ export const Header: React.FC = () => {
         left: 0,
         right: 0,
         zIndex: 100,
-        padding: 'clamp(1rem, 2.5vh, 1.5rem) clamp(1.5rem, 4vw, 3rem)',
+        padding: 'clamp(1rem, 2.5vh, 1.5rem) clamp(1.5rem, 4vw, 3.5rem)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        background: 'linear-gradient(to bottom, rgba(9, 8, 10, 0.95) 0%, rgba(9, 8, 10, 0) 100%)',
-        backdropFilter: 'blur(8px)',
+        background: 'linear-gradient(to bottom, rgba(7, 10, 16, 0.92) 0%, rgba(7, 10, 16, 0) 100%)',
+        backdropFilter: 'blur(10px)',
         pointerEvents: 'none',
       }}
     >
       {/* Brand logo & title */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', pointerEvents: 'auto' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', pointerEvents: 'auto' }}>
         <a
           href="#hero-stage"
           style={{
-            fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
-            fontSize: '1.4rem',
-            letterSpacing: '0.1em',
-            color: 'var(--color-cream-white)',
+            fontFamily: isArabic ? 'var(--font-arabic-display)' : 'var(--font-display)',
+            fontSize: '1.25rem',
+            letterSpacing: isArabic ? '0.02em' : '-0.02em',
+            color: 'var(--color-text-primary)',
             textDecoration: 'none',
-            fontWeight: 700,
+            fontWeight: 800,
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
           }}
+          aria-label="Ahmed Al Malah Portfolio Home"
         >
-          {isArabic ? 'أحمد' : 'AM'}
+          <BrandMonogram size={22} color="#FFFFFF" />
+          <span>{isArabic ? 'أحمد المـلاح' : 'AHMED'}</span>
         </a>
         <span
           className="header-tagline"
           style={{
             display: 'inline-block',
-            width: '4px',
-            height: '4px',
+            width: '5px',
+            height: '5px',
             borderRadius: '50%',
-            backgroundColor: 'var(--color-hot-orange)',
-            boxShadow: '0 0 8px var(--color-hot-orange)',
+            backgroundColor: 'var(--color-solar-amber)',
+            boxShadow: '0 0 10px var(--color-solar-amber)',
           }}
         />
         <span
@@ -54,7 +60,7 @@ export const Header: React.FC = () => {
             fontSize: 'var(--text-xs)',
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
-            color: 'var(--color-muted-beige)',
+            color: 'var(--color-text-secondary)',
             fontWeight: 600,
           }}
         >
@@ -64,23 +70,21 @@ export const Header: React.FC = () => {
 
       {/* Navigation & Language Switch */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(1rem, 2.5vw, 2.5rem)', pointerEvents: 'auto' }}>
-        <nav
-          className="desktop-nav"
-        >
+        <nav className="desktop-nav">
           <a
-            href="#unmasked-intro"
+            href="#about-identity"
             style={{
               fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
               fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
               letterSpacing: isArabic ? '0.04em' : '0.14em',
               textTransform: 'uppercase',
-              color: 'var(--color-muted-beige)',
+              color: 'var(--color-text-secondary)',
               fontWeight: 600,
               textDecoration: 'none',
               transition: 'color 0.2s ease',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-cream-white)')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-muted-beige)')}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-text-primary)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-secondary)')}
           >
             {t('nav_identity')}
           </a>
@@ -91,13 +95,13 @@ export const Header: React.FC = () => {
               fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
               letterSpacing: isArabic ? '0.04em' : '0.14em',
               textTransform: 'uppercase',
-              color: 'var(--color-muted-beige)',
+              color: 'var(--color-text-secondary)',
               fontWeight: 600,
               textDecoration: 'none',
               transition: 'color 0.2s ease',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-cream-white)')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-muted-beige)')}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-text-primary)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-secondary)')}
           >
             {t('nav_oss')}
           </a>
@@ -108,13 +112,13 @@ export const Header: React.FC = () => {
               fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
               letterSpacing: isArabic ? '0.04em' : '0.14em',
               textTransform: 'uppercase',
-              color: 'var(--color-muted-beige)',
+              color: 'var(--color-text-secondary)',
               fontWeight: 600,
               textDecoration: 'none',
               transition: 'color 0.2s ease',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-cream-white)')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-muted-beige)')}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-text-primary)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-secondary)')}
           >
             {t('nav_journey')}
           </a>
@@ -125,13 +129,13 @@ export const Header: React.FC = () => {
               fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
               letterSpacing: isArabic ? '0.04em' : '0.14em',
               textTransform: 'uppercase',
-              color: 'var(--color-muted-beige)',
+              color: 'var(--color-text-secondary)',
               fontWeight: 600,
               textDecoration: 'none',
               transition: 'color 0.2s ease',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-cream-white)')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-muted-beige)')}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-text-primary)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-secondary)')}
           >
             {t('nav_profile')}
           </a>
@@ -142,70 +146,26 @@ export const Header: React.FC = () => {
               fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
               letterSpacing: isArabic ? '0.04em' : '0.14em',
               textTransform: 'uppercase',
-              color: 'var(--color-hot-orange)',
+              color: 'var(--color-solar-amber)',
               fontWeight: 700,
               textDecoration: 'none',
-              transition: 'color 0.2s ease',
+              transition: 'color 0.2s ease, text-shadow 0.2s ease',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-warm-orange)')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-hot-orange)')}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = '#FFA938';
+              e.currentTarget.style.textShadow = '0 0 12px var(--color-solar-glow)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = 'var(--color-solar-amber)';
+              e.currentTarget.style.textShadow = 'none';
+            }}
           >
             {t('nav_contact')}
           </a>
         </nav>
-
-        {/* Minimal Language Switch (EN | AR) */}
-        <div
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '4px',
-            padding: '3px 8px',
-            borderRadius: '4px',
-            backgroundColor: 'rgba(243, 237, 227, 0.06)',
-            border: '1px solid rgba(243, 237, 227, 0.15)',
-          }}
-          aria-label="Language Selector"
-        >
-          <button
-            type="button"
-            onClick={() => setLang('en')}
-            style={{
-              background: 'none',
-              border: 'none',
-              fontFamily: 'var(--font-body)',
-              fontSize: '11px',
-              fontWeight: lang === 'en' ? 700 : 500,
-              color: lang === 'en' ? 'var(--color-hot-orange)' : 'var(--color-muted-beige)',
-              cursor: 'pointer',
-              padding: '2px 4px',
-              transition: 'color 0.2s ease',
-            }}
-            aria-current={lang === 'en' ? 'true' : undefined}
-          >
-            EN
-          </button>
-          <span style={{ color: 'rgba(243, 237, 227, 0.2)', fontSize: '10px' }}>|</span>
-          <button
-            type="button"
-            onClick={() => setLang('ar')}
-            style={{
-              background: 'none',
-              border: 'none',
-              fontFamily: 'var(--font-arabic)',
-              fontSize: '12px',
-              fontWeight: lang === 'ar' ? 700 : 500,
-              color: lang === 'ar' ? 'var(--color-hot-orange)' : 'var(--color-muted-beige)',
-              cursor: 'pointer',
-              padding: '2px 4px',
-              transition: 'color 0.2s ease',
-            }}
-            aria-current={lang === 'ar' ? 'true' : undefined}
-          >
-            عربي
-          </button>
-        </div>
       </div>
     </header>
   );
 };
+
+export default Header;

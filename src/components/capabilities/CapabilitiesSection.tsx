@@ -1,11 +1,8 @@
-import React, { useRef } from 'react';
-import type { MotionValue } from 'framer-motion';
-import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Palette, Code2, Smartphone, Server, Sparkles, CheckCircle, ArrowRight } from 'lucide-react';
+import { usePointerParallax } from '@/hooks/usePointerParallax';
 import { useLanguage } from '@/context/LanguageContext';
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   DATA (4 Core Dimensions)
-───────────────────────────────────────────────────────────────────────────── */
 
 interface DomainItem {
   id: string;
@@ -15,6 +12,7 @@ interface DomainItem {
   subtitleEn: string;
   subtitleAr: string;
   accent: string;
+  icon: React.ReactNode;
   capabilitiesEn: string[];
   capabilitiesAr: string[];
   quoteEn?: string;
@@ -29,18 +27,19 @@ const DOMAINS: DomainItem[] = [
     titleAr: 'التوجيه الفني والتصميم',
     subtitleEn: 'Figma · Photoshop · Illustrator · Canva',
     subtitleAr: 'Figma · Photoshop · Illustrator · Canva',
-    accent: '#E64A24',
+    accent: '#F58A07',
+    icon: <Palette size={20} />,
     capabilitiesEn: [
-      'Art Direction & Branding',
+      'Art Direction & Visual Systems',
       'UI/UX & Web Design',
-      'Visual Experience Systems',
-      'Creative Direction',
+      'Interactive Design Prototypes',
+      'Creative Direction & Branding',
       'Figma, Photoshop, Illustrator',
     ],
     capabilitiesAr: [
-      'التوجيه الفني والتصميم',
+      'التوجيه الفني وبناء الأنظمة البصرية',
       'واجهات وتجربة المستخدم (UI/UX)',
-      'الأنظمة البصرية والتجارب الرقمية',
+      'نماذج التصميم التفاعلية',
       'التوجيه الإبداعي والهوية البصرية',
       'Figma · Photoshop · Illustrator · Canva',
     ],
@@ -48,24 +47,25 @@ const DOMAINS: DomainItem[] = [
   {
     id: 'frontend',
     number: '02',
-    titleEn: 'FRONTEND DEVELOPMENT',
+    titleEn: 'FRONTEND ARCHITECTURE',
     titleAr: 'تطوير الواجهات الأمامية',
     subtitleEn: 'React · Next.js · TypeScript · Tailwind CSS',
     subtitleAr: 'React · Next.js · TypeScript · Tailwind CSS',
-    accent: '#B82024',
+    accent: '#38BDF8',
+    icon: <Code2 size={20} />,
     capabilitiesEn: [
-      'React & Next.js Ecosystem',
+      'React & Next.js Ecosystems',
       'TypeScript Architecture',
-      'Tailwind CSS Styling',
-      'Interactive Web Experiences',
-      'Performance Optimization',
+      'Tailwind CSS & Modern Styling',
+      'High-Performance Web Animation',
+      'Accessible & Responsive Interfaces',
     ],
     capabilitiesAr: [
-      'تطوير الواجهات باستخدام React & Next.js',
-      'معمارية كود عالية الجودة بـ TypeScript',
-      'التصميم المتقدم بـ Tailwind CSS',
-      'تجارب ويب تفاعلية متجاوبة',
-      'تحسين الأداء وسرعة التحميل',
+      'منظومة React & Next.js المتقدمة',
+      'معمارية كود عالية الدقة بـ TypeScript',
+      'تصميم الواجهات الحديث بـ Tailwind CSS',
+      'حركات وتأثيرات ويب عالية الأداء',
+      'واجهات متجاوبة ومتاحة لجميع المستخدمين',
     ],
   },
   {
@@ -75,903 +75,424 @@ const DOMAINS: DomainItem[] = [
     titleAr: 'تطوير تطبيقات الهاتف',
     subtitleEn: 'Flutter · Dart',
     subtitleAr: 'Flutter · Dart',
-    accent: '#F27A32',
+    accent: '#1D4ED8',
+    icon: <Smartphone size={20} />,
     capabilitiesEn: [
       'Cross-Platform Flutter Apps',
-      'Dart Architecture',
+      'Dart State Management & Architecture',
       'Mobile UI/UX Implementation',
-      'Native Feature Integration',
-      'State Management & APIs',
+      'Native Device API Integration',
+      'Performance Optimization for iOS/Android',
     ],
     capabilitiesAr: [
       'تطبيقات متعددة المنصات بـ Flutter',
-      'برمجة متقدمة بلغة Dart',
-      'تنفيذ واجهات وتجارب الهاتف',
-      'تكامل الميزات والأنظمة البرمجية',
-      'إدارة الحالة والربط مع الواجهات البرمجية',
+      'معمارية إدارة الحالة بـ Dart',
+      'تنفيذ واجهات وتجارب الهاتف المتقنة',
+      'الربط مع ميزات الأجهزة والأنظمة',
+      'تحسين الأداء لنظامي iOS و Android',
     ],
   },
   {
     id: 'backend',
     number: '04',
-    titleEn: 'BACKEND DEVELOPMENT',
-    titleAr: 'تطوير الخوادم والبنية الخلفية',
+    titleEn: 'BACKEND & CLOUD SYSTEMS',
+    titleAr: 'الخوادم والبنية التحتية',
     subtitleEn: 'Node.js · Python · FastAPI',
     subtitleAr: 'Node.js · Python · FastAPI',
-    accent: '#B9ADA1',
+    accent: '#94A3B8',
+    icon: <Server size={20} />,
     capabilitiesEn: [
-      'Node.js & Express Services',
+      'Node.js & Express Microservices',
       'Python Data & Logic Pipelines',
-      'High-Performance FastAPI',
-      'REST & GraphQL APIs',
-      'Scalable System Architecture',
+      'High-Performance FastAPI Endpoints',
+      'RESTful & GraphQL API Architecture',
+      'Database Schema & Caching Strategies',
     ],
     capabilitiesAr: [
-      'خدمات الخوادم بـ Node.js',
-      'معالجة البيانات والمنطق البرمجي بـ Python',
-      'واجهات برمجية سريعة بـ FastAPI',
-      'تصميم واجهات RESTful APIs',
-      'بناء أنظمة خلفية قابلة للتوسع',
+      'خدمات الخوادم المصغرة بـ Node.js',
+      'مسارات البيانات والمنطق البرمجي بـ Python',
+      'واجهات برمجية فائقة السرعة بـ FastAPI',
+      'تصميم معمارية RESTful & GraphQL',
+      'إدارة قواعد البيانات واستراتيجيات التخزين المؤقت',
     ],
   },
   {
     id: 'ai',
     number: '05',
-    titleEn: 'ARTIFICIAL INTELLIGENCE',
-    titleAr: 'الذكاء الاصطناعي والأتمتة',
-    subtitleEn: 'LLMs · AI Agents · Automation',
-    subtitleAr: 'النماذج اللغوية · الوكلاء الذكيون · الأتمتة',
-    accent: '#E64A24',
+    titleEn: 'APPLIED ARTIFICIAL INTELLIGENCE',
+    titleAr: 'الذكاء الاصطناعي والأتمتة الذكية',
+    subtitleEn: 'LLMs · Autonomous Agents · AI Workflows',
+    subtitleAr: 'النماذج اللغوية · الوكلاء الذكيون · مسارات العمل التوليدية',
+    accent: '#00C2FF',
+    icon: <Sparkles size={20} />,
     capabilitiesEn: [
-      'AI Product Development',
-      'LLM Integrations & Agents',
+      'Full-Cycle AI Product Development',
+      'LLM Integrations & Autonomous Agents',
       'Intelligent Automation Workflows',
-      'Custom AI Solutions',
-      'Generative AI Workflows',
+      'Custom Generative AI Tools',
+      'AI-Powered Code & Media Systems',
     ],
     capabilitiesAr: [
-      'تطوير منتجات الذكاء الاصطناعي',
-      'دمج النماذج اللغوية (LLMs) والوكلاء',
+      'تطوير منتجات الذكاء الاصطناعي متكاملة',
+      'دمج النماذج اللغوية (LLMs) والوكلاء المستقلين',
       'أتمتة مسارات العمل الذكية',
-      'حلول البرمجة بمساعدة الذكاء الاصطناعي',
-      'تطوير الأدوات التوليدية التفاعلية',
+      'أدوات الذكاء الاصطناعي التوليدي المخصصة',
+      'أنظمة الذكاء الاصطناعي للكود والوسائط',
     ],
     quoteEn: 'I BELIEVE GOOD WORK STARTS WITH GOOD THINKING.',
-    quoteAr: 'أؤمن أن العمل الجيد يبدأ بالتفكير الجيد.',
+    quoteAr: 'أؤمن أن العمل الجيد يبدأ بالتفكير السليم.',
   },
 ];
 
-/* ─────────────────────────────────────────────────────────────────────────────
-   STATIC MOBILE / REDUCED MOTION LAYOUT
-───────────────────────────────────────────────────────────────────────────── */
-
-const StaticLayout: React.FC = () => {
-  const { isArabic, t } = useLanguage();
-
-  return (
-    <div
-      style={{
-        padding: 'clamp(4rem, 8vh, 7rem) var(--space-6)',
-        maxWidth: '1100px',
-        margin: '0 auto',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 'clamp(3rem, 6vh, 5rem)',
-      }}
-    >
-      {/* Header */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-        <div
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 'var(--space-3)',
-            fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-            fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
-            fontWeight: 700,
-            letterSpacing: isArabic ? '0.04em' : '0.25em',
-            textTransform: 'uppercase',
-            color: 'var(--color-hot-orange)',
-          }}
-        >
-          <span style={{ width: '16px', height: '1px', backgroundColor: 'var(--color-hot-orange)' }} />
-          {t('system_eyebrow')}
-        </div>
-        <h2
-          style={{
-            fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
-            fontSize: isArabic ? 'clamp(2.8rem, 7vw, 5rem)' : 'clamp(3rem, 7vw, 5.5rem)',
-            lineHeight: isArabic ? 1.2 : 0.9,
-            letterSpacing: isArabic ? '0.02em' : '0.04em',
-            textTransform: 'uppercase',
-            color: 'var(--color-cream-white)',
-            margin: 0,
-            fontWeight: isArabic ? 800 : 'normal',
-          }}
-        >
-          {t('system_title')}
-        </h2>
-      </div>
-
-      {/* 4 Domains */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(2.5rem, 5vh, 4rem)' }}>
-        {DOMAINS.map((domain) => (
-          <div key={domain.id} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
-              <span
-                style={{
-                  width: '12px',
-                  height: '12px',
-                  borderRadius: '50%',
-                  backgroundColor: domain.accent,
-                  boxShadow: `0 0 10px ${domain.accent}`,
-                  flexShrink: 0,
-                }}
-              />
-              <span
-                style={{
-                  fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-                  fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
-                  fontWeight: 700,
-                  letterSpacing: isArabic ? '0.04em' : '0.2em',
-                  color: domain.accent,
-                }}
-              >
-                {isArabic ? `٠${domain.number.replace('0', '')}` : domain.number} // {isArabic ? domain.subtitleAr : domain.subtitleEn}
-              </span>
-            </div>
-            <h3
-              style={{
-                fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
-                fontSize: isArabic ? 'clamp(1.8rem, 4.5vw, 3rem)' : 'clamp(2rem, 5vw, 3.5rem)',
-                lineHeight: isArabic ? 1.2 : 0.95,
-                letterSpacing: isArabic ? '0.02em' : '0.04em',
-                textTransform: 'uppercase',
-                color: 'var(--color-cream-white)',
-                margin: 0,
-                fontWeight: isArabic ? 800 : 'normal',
-              }}
-            >
-              {isArabic ? domain.titleAr : domain.titleEn}
-            </h3>
-
-            {domain.quoteEn && (
-              <p
-                style={{
-                  fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display-alt)',
-                  fontSize: isArabic ? '1.15rem' : 'clamp(1rem, 1.8vw, 1.35rem)',
-                  color: 'var(--color-warm-orange)',
-                  fontStyle: 'italic',
-                  margin: '4px 0',
-                  lineHeight: 1.4,
-                }}
-              >
-                "{isArabic ? domain.quoteAr : domain.quoteEn}"
-              </p>
-            )}
-
-            <ul
-              style={{
-                listStyle: 'none',
-                margin: 0,
-                padding: 0,
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '10px',
-                borderLeft: isArabic ? 'none' : `2px solid ${domain.accent}`,
-                borderRight: isArabic ? `2px solid ${domain.accent}` : 'none',
-                paddingLeft: isArabic ? 0 : 'var(--space-4)',
-                paddingRight: isArabic ? 'var(--space-4)' : 0,
-              }}
-            >
-              {(isArabic ? domain.capabilitiesAr : domain.capabilitiesEn).map((cap) => (
-                <li
-                  key={cap}
-                  style={{
-                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-                    fontSize: isArabic ? '1.05rem' : 'clamp(0.95rem, 1.4vw, 1.1rem)',
-                    fontWeight: isArabic ? 500 : 300,
-                    color: 'var(--color-cream-white)',
-                  }}
-                >
-                  {cap}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-
-      {/* Scale Metrics — Static */}
-      <div
-        style={{
-          borderTop: '1px solid rgba(243, 237, 227, 0.1)',
-          paddingTop: 'clamp(2rem, 4vh, 3.5rem)',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 'clamp(1.5rem, 3vh, 2.5rem)',
-        }}
-      >
-        <div
-          style={{
-            fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-            fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
-            fontWeight: 700,
-            letterSpacing: isArabic ? '0.04em' : '0.22em',
-            color: 'var(--color-hot-orange)',
-            textTransform: 'uppercase',
-          }}
-        >
-          {t('scale_eyebrow')}
-        </div>
-        
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          <div style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: 'clamp(3rem, 8vw, 5rem)', lineHeight: 0.9, letterSpacing: '0.04em', color: 'var(--color-cream-white)', fontWeight: isArabic ? 800 : 'normal' }}>
-            {isArabic ? '٢٥–٣٠' : '25–30'}
-          </div>
-          <div style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: '1rem', fontWeight: 600, color: 'var(--color-muted-beige)' }}>
-            {t('scale_web')}
-          </div>
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          <div style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: 'clamp(3rem, 8vw, 5rem)', lineHeight: 0.9, letterSpacing: '0.04em', color: 'var(--color-cream-white)', fontWeight: isArabic ? 800 : 'normal' }}>
-            {isArabic ? '٤–٥' : '4–5'}
-          </div>
-          <div style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: '1rem', fontWeight: 600, color: 'var(--color-muted-beige)' }}>
-            {t('scale_mobile')}
-          </div>
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          <div style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: 'clamp(3rem, 8vw, 5rem)', lineHeight: 0.9, letterSpacing: '0.04em', color: 'var(--color-cream-white)', fontWeight: isArabic ? 800 : 'normal' }}>
-            {isArabic ? '٥~' : '~5'}
-          </div>
-          <div style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: '1rem', fontWeight: 600, color: 'var(--color-muted-beige)' }}>
-            {t('scale_ai')}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   DOMAIN FRAME (Desktop)
-───────────────────────────────────────────────────────────────────────────── */
-
-interface DomainFrameProps {
-  domain: DomainItem;
-  opacity: MotionValue<number>;
-  translateY: MotionValue<number>;
-  scale: MotionValue<number>;
-}
-
-const DomainFrame: React.FC<DomainFrameProps> = ({
-  domain,
-  opacity,
-  translateY,
-  scale,
-}) => {
-  const { isArabic } = useLanguage();
-
-  return (
-    <motion.div
-      style={{
-        position: 'absolute',
-        inset: 0,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        opacity,
-        y: translateY,
-        scale,
-        pointerEvents: 'none',
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '680px',
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 'var(--space-4)',
-        }}
-      >
-        {/* Domain number + subtitle */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
-          <div
-            style={{
-              width: '10px',
-              height: '10px',
-              borderRadius: '50%',
-              backgroundColor: domain.accent,
-              boxShadow: `0 0 18px ${domain.accent}`,
-              flexShrink: 0,
-            }}
-          />
-          <span
-            style={{
-              fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-              fontSize: isArabic ? '1rem' : 'var(--text-xs)',
-              fontWeight: 700,
-              letterSpacing: isArabic ? '0.04em' : '0.22em',
-              textTransform: 'uppercase',
-              color: domain.accent,
-            }}
-          >
-            {isArabic ? `٠${domain.number.replace('0', '')}` : domain.number} // {isArabic ? domain.subtitleAr : domain.subtitleEn}
-          </span>
-        </div>
-
-        {/* Domain title */}
-        <h3
-          style={{
-            fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
-            fontSize: isArabic ? 'clamp(2.4rem, 4.8vw, 4.2rem)' : 'clamp(2.8rem, 5.2vw, 4.6rem)',
-            lineHeight: isArabic ? 1.2 : 0.9,
-            letterSpacing: isArabic ? '0.02em' : '0.04em',
-            textTransform: 'uppercase',
-            color: 'var(--color-cream-white)',
-            margin: 0,
-            fontWeight: isArabic ? 800 : 'normal',
-          }}
-        >
-          {isArabic ? domain.titleAr : domain.titleEn}
-        </h3>
-
-        {/* Data & Business Statement Callout */}
-        {domain.quoteEn && (
-          <p
-            style={{
-              fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display-alt)',
-              fontSize: isArabic ? '1.25rem' : 'clamp(1.1rem, 2vw, 1.45rem)',
-              lineHeight: 1.35,
-              letterSpacing: isArabic ? '0.02em' : '0.04em',
-              color: 'var(--color-warm-orange)',
-              fontStyle: 'italic',
-              margin: '2px 0',
-              textShadow: '0 0 20px rgba(242, 122, 50, 0.35)',
-            }}
-          >
-            "{isArabic ? domain.quoteAr : domain.quoteEn}"
-          </p>
-        )}
-
-        {/* Thin separator line */}
-        <div
-          style={{
-            width: '100%',
-            height: '1px',
-            backgroundColor: `${domain.accent}40`,
-          }}
-        />
-
-        {/* Capabilities list */}
-        <ul
-          style={{
-            listStyle: 'none',
-            margin: 0,
-            padding: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '10px',
-          }}
-        >
-          {(isArabic ? domain.capabilitiesAr : domain.capabilitiesEn).map((cap, i) => (
-            <li
-              key={cap}
-              style={{
-                display: 'flex',
-                alignItems: 'baseline',
-                gap: 'var(--space-3)',
-                fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-                fontSize: isArabic ? '1.15rem' : 'clamp(0.95rem, 1.5vw, 1.2rem)',
-                fontWeight: isArabic ? 500 : 300,
-                color: 'var(--color-cream-white)',
-              }}
-            >
-              <span
-                style={{
-                  flexShrink: 0,
-                  fontFamily: 'var(--font-body)',
-                  fontSize: '10px',
-                  fontWeight: 700,
-                  letterSpacing: '0.12em',
-                  color: domain.accent,
-                  opacity: 0.8,
-                }}
-              >
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              {cap}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </motion.div>
-  );
-};
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   MAIN COMPONENT
-───────────────────────────────────────────────────────────────────────────── */
-
 export const CapabilitiesSection: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const shouldReduceMotion = useReducedMotion() ?? false;
+  const [activeTab, setActiveTab] = useState<string>('design');
+  const { prefersReducedMotion } = usePointerParallax();
   const { isArabic, t } = useLanguage();
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  });
-
-  // 1. AI domain (0.00 – 0.25)
-  const aiOpacity = useTransform(scrollYProgress, [0, 0.05, 0.22, 0.28], [0.4, 1, 1, 0]);
-  const aiY = useTransform(scrollYProgress, [0, 0.05, 0.22, 0.28], [30, 0, 0, -30]);
-  const aiScale = useTransform(scrollYProgress, [0, 0.05, 0.22, 0.28], [0.97, 1, 1, 0.97]);
-
-  // 2. Software domain (0.24 – 0.48)
-  const swOpacity = useTransform(scrollYProgress, [0.24, 0.3, 0.44, 0.5], [0, 1, 1, 0]);
-  const swY = useTransform(scrollYProgress, [0.24, 0.3, 0.44, 0.5], [30, 0, 0, -30]);
-  const swScale = useTransform(scrollYProgress, [0.24, 0.3, 0.44, 0.5], [0.97, 1, 1, 0.97]);
-
-  // 3. Data & Business domain (0.46 – 0.70)
-  const dbOpacity = useTransform(scrollYProgress, [0.46, 0.52, 0.66, 0.72], [0, 1, 1, 0]);
-  const dbY = useTransform(scrollYProgress, [0.46, 0.52, 0.66, 0.72], [30, 0, 0, -30]);
-  const dbScale = useTransform(scrollYProgress, [0.46, 0.52, 0.66, 0.72], [0.97, 1, 1, 0.97]);
-
-  // 4. Product domain (0.68 – 0.86)
-  const prOpacity = useTransform(scrollYProgress, [0.68, 0.74, 0.84, 0.89], [0, 1, 1, 0]);
-  const prY = useTransform(scrollYProgress, [0.68, 0.74, 0.84, 0.89], [30, 0, 0, -30]);
-  const prScale = useTransform(scrollYProgress, [0.68, 0.74, 0.84, 0.89], [0.97, 1, 1, 0.97]);
-
-  // 5. Scale moment (0.85 – 1.00)
-  const scaleOpacity = useTransform(scrollYProgress, [0.85, 0.91, 1], [0, 1, 1]);
-  const scaleY = useTransform(scrollYProgress, [0.85, 0.91], [30, 0]);
-
-  // Header fade
-  const headerOpacity = useTransform(scrollYProgress, [0, 0.05, 0.32, 0.38], [0.5, 1, 1, 0]);
-
-  // Trajectory line draw
-  const lineScaleY = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
-
-  // Stage label
-  const stageLabel = useTransform(
-    scrollYProgress,
-    [0, 0.26, 0.48, 0.7, 0.88],
-    isArabic
-      ? ['٠١ // التوجيه الفني والتصميم', '٠٢ // تطوير الواجهات الأمامية', '٠٣ // تطبيقات الهاتف', '٠٤ // البنية الخلفية', 'حجم الأعمال البرمجية']
-      : ['01 // ART DIRECTION & DESIGN', '02 // FRONTEND DEVELOPMENT', '03 // MOBILE DEVELOPMENT', '04 // BACKEND DEVELOPMENT', 'ENGINEERING SCALE']
-  );
-
-  if (shouldReduceMotion) {
-    return (
-      <section
-        ref={containerRef}
-        id="capabilities"
-        aria-label="Engineering Profile — Capabilities and Scale"
-        style={{
-          position: 'relative',
-          zIndex: 10,
-          backgroundColor: 'var(--color-deep-black)',
-          color: 'var(--color-cream-white)',
-          borderTop: '1px solid rgba(184, 32, 36, 0.15)',
-          width: '100%',
-        }}
-      >
-        <StaticLayout />
-      </section>
-    );
-  }
+  const currentDomain = DOMAINS.find((d) => d.id === activeTab) || DOMAINS[0];
 
   return (
     <section
-      ref={containerRef}
       id="capabilities"
       aria-label="Engineering Profile — Capabilities and Scale"
       style={{
         position: 'relative',
         zIndex: 10,
-        backgroundColor: 'var(--color-deep-black)',
-        color: 'var(--color-cream-white)',
-        borderTop: '1px solid rgba(184, 32, 36, 0.15)',
-        width: '100%',
-        height: '440vh',
+        backgroundColor: '#070A10',
+        color: 'var(--color-text-primary)',
+        padding: 'clamp(5rem, 10vh, 8rem) clamp(1rem, 4vw, 3.5rem)',
+        borderTop: '1px solid rgba(29, 78, 216, 0.25)',
+        overflow: 'hidden',
       }}
     >
-      {/* ── Sticky Viewport Pane ─────────────────────────────────────── */}
+      {/* Background Volumetric Glow */}
       <div
         style={{
-          position: 'sticky',
-          top: 0,
+          position: 'absolute',
+          top: '25%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: 'min(900px, 95vw)',
+          height: 'min(600px, 60vh)',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle at center, rgba(29, 78, 216, 0.16) 0%, rgba(7, 10, 16, 0) 70%)',
+          filter: 'blur(80px)',
+          pointerEvents: 'none',
+        }}
+      />
+
+      <div
+        style={{
           width: '100%',
-          height: '100svh',
-          overflow: 'hidden',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'clamp(3rem, 6vh, 4.5rem)',
+          position: 'relative',
+          zIndex: 2,
         }}
       >
-        {/* Background atmospheric glow */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(184,32,36,0.06) 0%, transparent 75%)',
-            pointerEvents: 'none',
-          }}
-        />
-
-        {/* ── Trajectory line ──────────── */}
-        <div
-          style={{
-            position: 'absolute',
-            left: isArabic ? 'auto' : 'clamp(2.5rem, 5vw, 4rem)',
-            right: isArabic ? 'clamp(2.5rem, 5vw, 4rem)' : 'auto',
-            top: '10%',
-            bottom: '10%',
-            width: '1px',
-            backgroundColor: 'rgba(243,237,227,0.08)',
-          }}
-        >
+        {/* Section Header */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
           <motion.div
+            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
             style={{
-              width: '100%',
-              height: '100%',
-              backgroundColor: 'var(--color-hot-orange)',
-              scaleY: lineScaleY,
-              transformOrigin: 'top',
-              boxShadow: '0 0 8px rgba(230,74,36,0.6)',
-            }}
-          />
-        </div>
-
-        {/* ── Stage indicator (Top Corner) ─────────────────────────── */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 'clamp(1.5rem, 3vh, 2.5rem)',
-            left: isArabic ? 'clamp(2rem, 4vw, 4rem)' : 'auto',
-            right: isArabic ? 'auto' : 'clamp(2rem, 4vw, 4rem)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 'var(--space-2)',
-            zIndex: 30,
-          }}
-        >
-          <span
-            style={{
-              width: '6px',
-              height: '6px',
-              borderRadius: '50%',
-              backgroundColor: 'var(--color-hot-orange)',
-              boxShadow: '0 0 10px var(--color-hot-orange)',
-            }}
-          />
-          <motion.span
-            style={{
-              fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-              fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
-              fontWeight: 700,
-              letterSpacing: isArabic ? '0.04em' : '0.2em',
-              textTransform: 'uppercase',
-              color: 'var(--color-cream-white)',
-            }}
-          >
-            {stageLabel}
-          </motion.span>
-        </div>
-
-        {/* ── Persistent section header ─────── */}
-        <motion.div
-          style={{
-            position: 'absolute',
-            top: 'clamp(1.5rem, 3vh, 2.5rem)',
-            left: isArabic ? 'auto' : 'clamp(4.5rem, 8vw, 7rem)',
-            right: isArabic ? 'clamp(4.5rem, 8vw, 7rem)' : 'auto',
-            opacity: headerOpacity,
-            zIndex: 20,
-            pointerEvents: 'none',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '4px',
-          }}
-        >
-          <div
-            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 'var(--space-3)',
               fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
               fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
               fontWeight: 700,
               letterSpacing: isArabic ? '0.04em' : '0.25em',
               textTransform: 'uppercase',
-              color: 'var(--color-hot-orange)',
+              color: 'var(--color-solar-amber)',
             }}
           >
+            <span style={{ width: '18px', height: '1px', backgroundColor: 'var(--color-solar-amber)' }} />
             {t('system_eyebrow')}
-          </div>
-          <h2
+          </motion.div>
+
+          <motion.h2
+            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             style={{
-              fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
-              fontSize: isArabic ? 'clamp(1.8rem, 3.2vw, 2.6rem)' : 'clamp(2rem, 3.5vw, 3rem)',
-              lineHeight: isArabic ? 1.2 : 0.9,
-              letterSpacing: isArabic ? '0.02em' : '0.04em',
+              fontFamily: isArabic ? 'var(--font-arabic-display)' : 'var(--font-display)',
+              fontSize: isArabic ? 'clamp(2.6rem, 6.5vw, 5.2rem)' : 'clamp(3rem, 7vw, 5.8rem)',
+              lineHeight: isArabic ? 1.15 : 0.9,
+              letterSpacing: isArabic ? '0.01em' : '0.03em',
               textTransform: 'uppercase',
-              color: 'var(--color-cream-white)',
+              color: '#FFFFFF',
               margin: 0,
-              fontWeight: isArabic ? 800 : 'normal',
+              fontWeight: isArabic ? 900 : 800,
             }}
           >
             {t('system_title')}
-          </h2>
-        </motion.div>
+          </motion.h2>
 
-        {/* ── Central content stage ───────────────────────────────── */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '100%',
-            maxWidth: '950px',
-            padding: '0 clamp(4rem, 8vw, 7rem)',
-            boxSizing: 'border-box',
-          }}
-        >
-          {/* Domain 01: AI Engineering */}
-          <DomainFrame
-            domain={DOMAINS[0]}
-            opacity={aiOpacity}
-            translateY={aiY}
-            scale={aiScale}
-          />
-
-          {/* Domain 02: Software Engineering */}
-          <DomainFrame
-            domain={DOMAINS[1]}
-            opacity={swOpacity}
-            translateY={swY}
-            scale={swScale}
-          />
-
-          {/* Domain 03: Data & Business */}
-          <DomainFrame
-            domain={DOMAINS[2]}
-            opacity={dbOpacity}
-            translateY={dbY}
-            scale={dbScale}
-          />
-
-          {/* Domain 04: Product Engineering */}
-          <DomainFrame
-            domain={DOMAINS[3]}
-            opacity={prOpacity}
-            translateY={prY}
-            scale={prScale}
-          />
-
-          {/* ── Scale Moment ──────────────────────────────────────── */}
-          <motion.div
+          <motion.p
+            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
             style={{
-              position: 'absolute',
-              inset: 0,
-              opacity: scaleOpacity,
-              y: scaleY,
-              pointerEvents: 'none',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 'clamp(1.5rem, 3vh, 2.5rem)',
+              fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
+              fontSize: isArabic ? '1.05rem' : '1rem',
+              color: 'var(--color-text-secondary)',
+              margin: 0,
+              maxWidth: '700px',
             }}
           >
+            {isArabic
+              ? 'تكامل متوازن بين الدقة الهندسية للبرمجيات والتوجيه البصري الإبداعي، مدعوماً بأنظمة الذكاء الاصطناعي.'
+              : 'A balanced intersection of high-precision software engineering, visual direction, and applied AI systems.'}
+          </motion.p>
+        </div>
+
+        {/* ── INTERACTIVE CAPABILITIES BENTO ── */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: 'var(--space-6)',
+            alignItems: 'stretch',
+          }}
+        >
+          {/* Domain Selector Navigation Cards */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+            {DOMAINS.map((domain) => {
+              const isSelected = domain.id === activeTab;
+              return (
+                <button
+                  key={domain.id}
+                  type="button"
+                  onClick={() => setActiveTab(domain.id)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: 'var(--space-4) var(--space-5)',
+                    borderRadius: 'var(--border-radius-md)',
+                    backgroundColor: isSelected ? 'rgba(29, 78, 216, 0.15)' : 'var(--color-surface-card)',
+                    border: isSelected ? `1px solid ${domain.accent}` : '1px solid rgba(255, 255, 255, 0.08)',
+                    boxShadow: isSelected ? `0 0 25px ${domain.accent}30` : 'none',
+                    textAlign: isArabic ? 'right' : 'left',
+                    cursor: 'pointer',
+                    transition: 'all 0.25s ease',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
+                    <div
+                      style={{
+                        color: isSelected ? domain.accent : 'var(--color-text-muted)',
+                        transition: 'color 0.2s ease',
+                      }}
+                    >
+                      {domain.icon}
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                      <span
+                        style={{
+                          fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
+                          fontSize: '11px',
+                          fontWeight: 700,
+                          letterSpacing: '0.12em',
+                          color: domain.accent,
+                          textTransform: 'uppercase',
+                        }}
+                      >
+                        {isArabic ? `٠${domain.number.replace('0', '')}` : domain.number} // {isArabic ? domain.subtitleAr : domain.subtitleEn}
+                      </span>
+                      <span
+                        style={{
+                          fontFamily: isArabic ? 'var(--font-arabic-display)' : 'var(--font-display)',
+                          fontSize: isArabic ? '1.25rem' : '1.15rem',
+                          fontWeight: 800,
+                          color: isSelected ? '#FFFFFF' : 'var(--color-text-secondary)',
+                          letterSpacing: '0.02em',
+                        }}
+                      >
+                        {isArabic ? domain.titleAr : domain.titleEn}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div
+                    style={{
+                      color: isSelected ? domain.accent : 'rgba(255, 255, 255, 0.2)',
+                      transform: isArabic ? 'rotate(180deg)' : 'none',
+                    }}
+                  >
+                    <ArrowRight size={16} />
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Detailed Domain Deep-Dive Panel */}
+          <motion.div
+            key={currentDomain.id}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
+            style={{
+              backgroundColor: 'var(--color-surface-card)',
+              backdropFilter: 'blur(20px)',
+              border: `1px solid ${currentDomain.accent}50`,
+              borderRadius: 'var(--border-radius-lg)',
+              padding: 'clamp(2rem, 4vw, 3rem)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              gap: 'var(--space-6)',
+              boxShadow: `0 20px 50px rgba(0, 0, 0, 0.7), 0 0 40px ${currentDomain.accent}20`,
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
+            {/* Top Glow Accent */}
             <div
               style={{
-                fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-                fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
-                fontWeight: 700,
-                letterSpacing: isArabic ? '0.04em' : '0.22em',
-                textTransform: 'uppercase',
-                color: 'var(--color-hot-orange)',
+                position: 'absolute',
+                top: 0,
+                right: isArabic ? 'auto' : 0,
+                left: isArabic ? 0 : 'auto',
+                width: '180px',
+                height: '180px',
+                background: `radial-gradient(circle at top, ${currentDomain.accent}25 0%, transparent 70%)`,
+                pointerEvents: 'none',
               }}
-            >
-              {t('scale_eyebrow')}
+            />
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', position: 'relative', zIndex: 2 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+                <span
+                  style={{
+                    width: '8px',
+                    height: '8px',
+                    borderRadius: '50%',
+                    backgroundColor: currentDomain.accent,
+                    boxShadow: `0 0 10px ${currentDomain.accent}`,
+                  }}
+                />
+                <span
+                  style={{
+                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
+                    fontSize: '11px',
+                    fontWeight: 700,
+                    letterSpacing: '0.15em',
+                    color: currentDomain.accent,
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  {isArabic ? currentDomain.subtitleAr : currentDomain.subtitleEn}
+                </span>
+              </div>
+
+              <h3
+                style={{
+                  fontFamily: isArabic ? 'var(--font-arabic-display)' : 'var(--font-display)',
+                  fontSize: isArabic ? 'clamp(1.8rem, 4vw, 2.6rem)' : 'clamp(2rem, 4vw, 2.8rem)',
+                  lineHeight: 1.15,
+                  color: '#FFFFFF',
+                  margin: 0,
+                  fontWeight: 800,
+                }}
+              >
+                {isArabic ? currentDomain.titleAr : currentDomain.titleEn}
+              </h3>
+
+              {currentDomain.quoteEn && (
+                <p
+                  style={{
+                    fontFamily: 'var(--font-script)',
+                    fontSize: '1.45rem',
+                    color: 'var(--color-electric-cyan)',
+                    margin: 0,
+                    textShadow: '0 0 15px rgba(56, 189, 248, 0.4)',
+                  }}
+                >
+                  "{isArabic ? currentDomain.quoteAr : currentDomain.quoteEn}"
+                </p>
+              )}
+
+              {/* Capabilities Bulleted List */}
+              <ul
+                style={{
+                  listStyle: 'none',
+                  margin: 'var(--space-2) 0 0 0',
+                  padding: 0,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 'var(--space-3)',
+                }}
+              >
+                {(isArabic ? currentDomain.capabilitiesAr : currentDomain.capabilitiesEn).map((cap) => (
+                  <li
+                    key={cap}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 'var(--space-3)',
+                      fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
+                      fontSize: isArabic ? '1.1rem' : '1rem',
+                      color: 'var(--color-text-primary)',
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    <CheckCircle size={16} color={currentDomain.accent} style={{ flexShrink: 0 }} />
+                    <span>{cap}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
+            {/* Bottom Scale Strip */}
             <div
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: 'clamp(2rem, 4vw, 4rem)',
-                borderTop: '1px solid rgba(243,237,227,0.1)',
-                paddingTop: 'clamp(1.5rem, 3vh, 2.5rem)',
+                gap: 'var(--space-3)',
+                borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                paddingTop: 'var(--space-4)',
+                position: 'relative',
+                zIndex: 2,
               }}
             >
-              {/* 25-30 Web Apps */}
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '8px',
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
-                    fontSize: 'clamp(3rem, 6.5vw, 5.5rem)',
-                    lineHeight: 0.9,
-                    letterSpacing: '0.04em',
-                    color: 'var(--color-cream-white)',
-                    fontWeight: isArabic ? 800 : 'normal',
-                  }}
-                >
-                  {isArabic ? '٢٥–٣٠' : '25–30'}
-                </div>
-                <div
-                  style={{
-                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-                    fontSize: isArabic ? '1.05rem' : 'clamp(0.75rem, 1.1vw, 0.95rem)',
-                    fontWeight: 700,
-                    letterSpacing: isArabic ? '0.02em' : '0.16em',
-                    textTransform: 'uppercase',
-                    color: 'var(--color-warm-orange)',
-                  }}
-                >
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', fontWeight: 800, color: '#FFFFFF' }}>
+                  25–30
+                </span>
+                <span style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: '11px', color: 'var(--color-text-muted)', textTransform: 'uppercase' }}>
                   {t('scale_web')}
-                </div>
-                <div
-                  style={{
-                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-                    fontSize: '11px',
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
-                    color: 'var(--color-muted-beige)',
-                  }}
-                >
-                  {t('scale_projects')}
-                </div>
+                </span>
               </div>
 
-              {/* 4-5 Mobile Apps */}
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '8px',
-                  borderLeft: isArabic ? 'none' : '1px solid rgba(243,237,227,0.1)',
-                  borderRight: isArabic ? '1px solid rgba(243,237,227,0.1)' : 'none',
-                  paddingLeft: isArabic ? 0 : 'clamp(1.5rem, 3vw, 2.5rem)',
-                  paddingRight: isArabic ? 'clamp(1.5rem, 3vw, 2.5rem)' : 0,
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
-                    fontSize: 'clamp(3rem, 6.5vw, 5.5rem)',
-                    lineHeight: 0.9,
-                    letterSpacing: '0.04em',
-                    color: 'var(--color-cream-white)',
-                    fontWeight: isArabic ? 800 : 'normal',
-                  }}
-                >
-                  {isArabic ? '٤–٥' : '4–5'}
-                </div>
-                <div
-                  style={{
-                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-                    fontSize: isArabic ? '1.05rem' : 'clamp(0.75rem, 1.1vw, 0.95rem)',
-                    fontWeight: 700,
-                    letterSpacing: isArabic ? '0.02em' : '0.16em',
-                    textTransform: 'uppercase',
-                    color: 'var(--color-warm-orange)',
-                  }}
-                >
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', fontWeight: 800, color: '#FFFFFF' }}>
+                  4–5
+                </span>
+                <span style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: '11px', color: 'var(--color-text-muted)', textTransform: 'uppercase' }}>
                   {t('scale_mobile')}
-                </div>
-                <div
-                  style={{
-                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-                    fontSize: '11px',
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
-                    color: 'var(--color-muted-beige)',
-                  }}
-                >
-                  {t('scale_projects')}
-                </div>
+                </span>
               </div>
 
-              {/* ~5 AI Software Builds */}
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '8px',
-                  borderLeft: isArabic ? 'none' : '1px solid rgba(243,237,227,0.1)',
-                  borderRight: isArabic ? '1px solid rgba(243,237,227,0.1)' : 'none',
-                  paddingLeft: isArabic ? 0 : 'clamp(1.5rem, 3vw, 2.5rem)',
-                  paddingRight: isArabic ? 'clamp(1.5rem, 3vw, 2.5rem)' : 0,
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
-                    fontSize: 'clamp(3rem, 6.5vw, 5.5rem)',
-                    lineHeight: 0.9,
-                    letterSpacing: '0.04em',
-                    color: 'var(--color-cream-white)',
-                    fontWeight: isArabic ? 800 : 'normal',
-                  }}
-                >
-                  {isArabic ? '٥~' : '~5'}
-                </div>
-                <div
-                  style={{
-                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-                    fontSize: isArabic ? '1.05rem' : 'clamp(0.75rem, 1.1vw, 0.95rem)',
-                    fontWeight: 700,
-                    letterSpacing: isArabic ? '0.02em' : '0.16em',
-                    textTransform: 'uppercase',
-                    color: 'var(--color-warm-orange)',
-                  }}
-                >
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', fontWeight: 800, color: '#FFFFFF' }}>
+                  ~5
+                </span>
+                <span style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: '11px', color: 'var(--color-text-muted)', textTransform: 'uppercase' }}>
                   {t('scale_ai')}
-                </div>
-                <div
-                  style={{
-                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-                    fontSize: '11px',
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
-                    color: 'var(--color-muted-beige)',
-                  }}
-                >
-                  {t('scale_products')}
-                </div>
+                </span>
               </div>
-            </div>
-
-            {/* Intersection statement */}
-            <div
-              style={{
-                fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display-alt)',
-                fontSize: isArabic ? '1.4rem' : 'clamp(1.1rem, 2.2vw, 1.8rem)',
-                letterSpacing: isArabic ? '0.02em' : '0.06em',
-                textTransform: 'uppercase',
-                color: 'var(--color-cream-white)',
-                opacity: 0.5,
-                marginTop: 'var(--space-2)',
-                fontWeight: isArabic ? 700 : 'normal',
-              }}
-            >
-              {t('system_intersection')}
             </div>
           </motion.div>
-        </div>
-
-        {/* ── Bottom progress cue ─────────────────────────────────── */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 'clamp(1.5rem, 3vh, 2.5rem)',
-            left: isArabic ? 'clamp(2rem, 4vw, 4rem)' : 'clamp(4.5rem, 8vw, 7rem)',
-            right: isArabic ? 'clamp(4.5rem, 8vw, 7rem)' : 'clamp(2rem, 4vw, 4rem)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
-            fontSize: isArabic ? '0.9rem' : 'var(--text-xs)',
-            letterSpacing: isArabic ? '0.04em' : '0.14em',
-            textTransform: 'uppercase',
-            color: 'rgba(185,173,161,0.5)',
-          }}
-        >
-          <span>{t('scroll_to_advance')}</span>
-          <motion.span
-            style={{
-              color: 'var(--color-warm-orange)',
-              fontWeight: 700,
-            }}
-          >
-            {stageLabel}
-          </motion.span>
         </div>
       </div>
     </section>

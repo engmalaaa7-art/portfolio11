@@ -34,3 +34,11 @@ screencapture-*.png
 exports/
 
 .vercel
+
+# Loose root files
+/[0-9]*.png
+/PORTUPDATE*.png
+/*.ttf
+/*.TTF
+/*.png
+!/public/**

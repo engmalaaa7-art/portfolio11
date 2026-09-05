@@ -1,23 +1,55 @@
 /**
  * Ahmed Al Malah Portfolio — JavaScript Design Tokens
- * Exported for type-safe usage in Framer Motion, layer orchestration, and web animations.
+ * Updated for the Midnight Obsidian × Cobalt × Solar Amber × Electric Cyan Visual Identity.
  */
 
 export const COLORS = {
-  deepBlack: '#09080A',
-  deepCrimson: '#7A1014',
-  cinematicRed: '#B82024',
-  hotOrange: '#E64A24',
-  warmOrange: '#F27A32',
-  creamWhite: '#F3EDE3',
-  mutedBeige: '#B9ADA1',
+  // Midnight Obsidian & Surfaces
+  canvas: '#070A10',
+  surfaceBase: '#0D1322',
+  surfaceCard: 'rgba(17, 24, 39, 0.72)',
+  surfaceHover: 'rgba(26, 37, 60, 0.85)',
+  surfaceGlass: 'rgba(13, 19, 34, 0.78)',
+
+  // Cobalt Depth
+  cobaltLight: '#1D4ED8',
+  cobaltDeep: '#14214B',
+  cobaltGlow: 'rgba(29, 78, 216, 0.45)',
+
+  // Solar Amber (Visual Anchor)
+  solarAmber: '#F58A07',
+  solarAmberDark: '#D97706',
+  solarGlow: 'rgba(245, 138, 7, 0.35)',
+
+  // Electric Cyan (Signature Script & Accents)
+  electricCyan: '#38BDF8',
+  electricCyanBright: '#00C2FF',
+  cyanGlow: 'rgba(56, 189, 248, 0.35)',
+
+  // Text & Neutrals
+  textPrimary: '#F8FAFC',
+  textSecondary: '#CBD5E1',
+  textMuted: '#64748B',
+
+  // Backward compatibility keys
+  deepBlack: '#070A10',
+  deepCrimson: '#131C38',
+  cinematicRed: '#1D4ED8',
+  hotOrange: '#F58A07',
+  warmOrange: '#F58A07',
+  creamWhite: '#F8FAFC',
+  mutedBeige: '#CBD5E1',
 } as const;
 
 export const TYPOGRAPHY = {
-  fontDisplay: "'Homoarakhn', sans-serif",
-  fontDisplayAlt: "'CombackHome', sans-serif",
-  fontArabic: "'ZainMob', system-ui, sans-serif",
-  fontBody: "'Inter', system-ui, -apple-system, sans-serif",
+  fontDisplay: "'Syne', 'Homoarakhn', sans-serif",
+  fontDisplayAlt: "'Plus Jakarta Sans', 'Syne', sans-serif",
+  fontArabicDisplay: "'Alexandria', 'ZainMob', system-ui, sans-serif",
+  fontScript: "'Caveat', cursive, sans-serif",
+  fontArabicScript: "'Alexandria', 'ZainMob', cursive, sans-serif",
+  fontArabic: "'Alexandria', 'ZainMob', system-ui, sans-serif",
+  fontBody: "'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif",
+  fontMono: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
 } as const;
 
 export const EASINGS = {

@@ -127,8 +127,8 @@ export const ExperienceJourney: React.FC = () => {
       style={{
         position: 'relative',
         zIndex: 10,
-        backgroundColor: 'var(--color-deep-black)',
-        color: 'var(--color-cream-white)',
+        backgroundColor: 'var(--color-canvas)',
+        color: 'var(--color-text-primary)',
         padding: 'clamp(5rem, 10vh, 8rem) var(--space-8)',
         minHeight: 'auto',
         display: 'flex',
@@ -136,7 +136,7 @@ export const ExperienceJourney: React.FC = () => {
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
-        borderTop: '1px solid rgba(184, 32, 36, 0.25)',
+        borderTop: '1px solid rgba(29, 78, 216, 0.25)',
       }}
     >
       {/* Subtle Atmospheric Backdrop Glow */}
@@ -148,7 +148,7 @@ export const ExperienceJourney: React.FC = () => {
           width: 'min(600px, 80vw)',
           height: 'min(600px, 80vw)',
           borderRadius: '50%',
-          background: 'radial-gradient(circle at center, rgba(184, 32, 36, 0.08) 0%, rgba(9, 8, 10, 0) 70%)',
+          background: 'radial-gradient(circle at center, rgba(29, 78, 216, 0.16) 0%, rgba(7, 10, 16, 0) 70%)',
           filter: 'blur(80px)',
           pointerEvents: 'none',
         }}
@@ -182,10 +182,10 @@ export const ExperienceJourney: React.FC = () => {
               fontWeight: 700,
               letterSpacing: isArabic ? '0.04em' : '0.25em',
               textTransform: 'uppercase',
-              color: 'var(--color-hot-orange)',
+              color: 'var(--color-solar-amber)',
             }}
           >
-            <span style={{ width: '18px', height: '1px', backgroundColor: 'var(--color-hot-orange)' }} />
+            <span style={{ width: '18px', height: '1px', backgroundColor: 'var(--color-solar-amber)' }} />
             {t('journey_eyebrow')}
           </motion.div>
 
@@ -195,15 +195,15 @@ export const ExperienceJourney: React.FC = () => {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             style={{
-              fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
+              fontFamily: isArabic ? 'var(--font-arabic-display)' : 'var(--font-display)',
               fontSize: isArabic ? 'clamp(3.6rem, 8.5vw, 7.2rem)' : 'clamp(3.5rem, 8vw, 7.5rem)',
               lineHeight: isArabic ? 1.15 : 0.9,
-              letterSpacing: isArabic ? '0.02em' : '0.04em',
+              letterSpacing: isArabic ? '0.01em' : '0.03em',
               textTransform: 'uppercase',
-              color: 'var(--color-cream-white)',
+              color: 'var(--color-text-primary)',
               margin: 0,
               width: '100%',
-              fontWeight: isArabic ? 800 : 'normal',
+              fontWeight: isArabic ? 900 : 800,
             }}
           >
             {t('journey_title')}
@@ -217,9 +217,9 @@ export const ExperienceJourney: React.FC = () => {
             style={{
               fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
               fontSize: isArabic ? 'clamp(1.05rem, 1.4vw, 1.25rem)' : 'clamp(0.95rem, 1.4vw, 1.15rem)',
-              fontWeight: isArabic ? 400 : 300,
+              fontWeight: 400,
               lineHeight: isArabic ? 1.75 : 1.6,
-              color: 'var(--color-muted-beige)',
+              color: 'var(--color-text-secondary)',
               margin: 0,
               maxWidth: '750px',
             }}
@@ -228,7 +228,7 @@ export const ExperienceJourney: React.FC = () => {
           </motion.p>
         </div>
 
-        {/* Editorial Career Timeline (The Web of Experience) */}
+        {/* Editorial Career Timeline */}
         <div
           style={{
             position: 'relative',
@@ -248,17 +248,17 @@ export const ExperienceJourney: React.FC = () => {
               left: isArabic ? 'auto' : '0',
               right: isArabic ? '0' : 'auto',
               width: '2px',
-              backgroundColor: 'rgba(243, 237, 227, 0.1)',
+              backgroundColor: 'rgba(255, 255, 255, 0.08)',
             }}
           >
             <motion.div
               style={{
                 width: '100%',
                 height: '100%',
-                backgroundColor: 'var(--color-hot-orange)',
+                backgroundColor: 'var(--color-electric-cyan)',
                 scaleY: pathLength,
                 transformOrigin: 'top',
-                boxShadow: '0 0 12px var(--color-hot-orange)',
+                boxShadow: '0 0 12px var(--color-cyan-glow)',
               }}
             />
           </div>
@@ -277,7 +277,7 @@ export const ExperienceJourney: React.FC = () => {
                 flexDirection: 'column',
                 gap: 'var(--space-3)',
                 paddingBottom: idx === EXPERIENCES.length - 1 ? 0 : 'clamp(2.5rem, 5vh, 4rem)',
-                borderBottom: idx === EXPERIENCES.length - 1 ? 'none' : '1px dashed rgba(243, 237, 227, 0.1)',
+                borderBottom: idx === EXPERIENCES.length - 1 ? 'none' : '1px dashed rgba(255, 255, 255, 0.08)',
               }}
             >
               {/* Timeline Trajectory Node */}
@@ -290,9 +290,9 @@ export const ExperienceJourney: React.FC = () => {
                   width: '12px',
                   height: '12px',
                   borderRadius: '50%',
-                  backgroundColor: exp.isCurrent ? 'var(--color-hot-orange)' : '#09080A',
-                  border: `2px solid ${exp.isCurrent ? 'var(--color-warm-orange)' : 'rgba(243, 237, 227, 0.4)'}`,
-                  boxShadow: exp.isCurrent ? '0 0 16px var(--color-hot-orange)' : 'none',
+                  backgroundColor: exp.isCurrent ? 'var(--color-solar-amber)' : '#070A10',
+                  border: `2px solid ${exp.isCurrent ? 'var(--color-solar-amber)' : 'rgba(255, 255, 255, 0.25)'}`,
+                  boxShadow: exp.isCurrent ? 'var(--shadow-solar-glow)' : 'none',
                   zIndex: 4,
                 }}
               />
@@ -308,7 +308,7 @@ export const ExperienceJourney: React.FC = () => {
                   fontSize: isArabic ? '0.95rem' : 'var(--text-xs)',
                   letterSpacing: isArabic ? '0.04em' : '0.2em',
                   textTransform: 'uppercase',
-                  color: exp.isCurrent ? 'var(--color-hot-orange)' : 'var(--color-muted-beige)',
+                  color: exp.isCurrent ? 'var(--color-solar-amber)' : 'var(--color-text-muted)',
                   fontWeight: 700,
                 }}
               >
@@ -321,10 +321,10 @@ export const ExperienceJourney: React.FC = () => {
                   <span
                     style={{
                       padding: '2px 8px',
-                      backgroundColor: 'rgba(230, 74, 36, 0.15)',
-                      border: '1px solid var(--color-hot-orange)',
+                      backgroundColor: 'rgba(245, 138, 7, 0.15)',
+                      border: '1px solid var(--color-solar-amber)',
                       borderRadius: 'var(--border-radius-sm)',
-                      color: 'var(--color-warm-orange)',
+                      color: 'var(--color-solar-amber)',
                       fontSize: '10px',
                     }}
                   >
@@ -335,10 +335,10 @@ export const ExperienceJourney: React.FC = () => {
                   <span
                     style={{
                       padding: '2px 8px',
-                      backgroundColor: 'rgba(242, 122, 50, 0.12)',
-                      border: '1px solid rgba(242, 122, 50, 0.4)',
+                      backgroundColor: 'rgba(56, 189, 248, 0.12)',
+                      border: '1px solid rgba(56, 189, 248, 0.4)',
                       borderRadius: 'var(--border-radius-sm)',
-                      color: 'var(--color-warm-orange)',
+                      color: 'var(--color-electric-cyan)',
                       fontSize: '10px',
                     }}
                   >
@@ -351,14 +351,14 @@ export const ExperienceJourney: React.FC = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                 <h3
                   style={{
-                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
+                    fontFamily: isArabic ? 'var(--font-arabic-display)' : 'var(--font-display)',
                     fontSize: isArabic ? 'clamp(2rem, 5vw, 3.8rem)' : 'clamp(2.4rem, 5.5vw, 4.4rem)',
                     lineHeight: isArabic ? 1.2 : 0.92,
-                    letterSpacing: isArabic ? '0.02em' : '0.04em',
+                    letterSpacing: isArabic ? '0.01em' : '0.03em',
                     textTransform: 'uppercase',
-                    color: 'var(--color-cream-white)',
+                    color: 'var(--color-text-primary)',
                     margin: 0,
-                    fontWeight: isArabic ? 800 : 'normal',
+                    fontWeight: isArabic ? 900 : 800,
                   }}
                 >
                   {isArabic ? exp.companyAr : exp.companyEn}
@@ -366,13 +366,13 @@ export const ExperienceJourney: React.FC = () => {
 
                 <div
                   style={{
-                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display-alt)',
+                    fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
                     fontSize: isArabic ? 'clamp(1.1rem, 2vw, 1.5rem)' : 'clamp(1rem, 1.8vw, 1.35rem)',
                     letterSpacing: isArabic ? '0.02em' : '0.08em',
                     textTransform: 'uppercase',
-                    color: 'var(--color-warm-orange)',
+                    color: 'var(--color-electric-cyan)',
                     marginTop: '2px',
-                    fontWeight: isArabic ? 700 : 'normal',
+                    fontWeight: 600,
                   }}
                 >
                   {isArabic ? exp.roleAr : exp.roleEn}
@@ -396,7 +396,7 @@ export const ExperienceJourney: React.FC = () => {
                       fontSize: isArabic ? '0.9rem' : 'var(--text-xs)',
                       fontWeight: 700,
                       letterSpacing: isArabic ? '0.04em' : '0.16em',
-                      color: 'var(--color-hot-orange)',
+                      color: 'var(--color-electric-cyan)',
                       textTransform: 'uppercase',
                     }}
                   >
@@ -406,9 +406,9 @@ export const ExperienceJourney: React.FC = () => {
                     style={{
                       fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
                       fontSize: isArabic ? '1rem' : '0.92rem',
-                      fontWeight: isArabic ? 400 : 300,
-                      lineHeight: isArabic ? 1.7 : 1.6,
-                      color: 'var(--color-cream-white)',
+                      fontWeight: 400,
+                      lineHeight: isArabic ? 1.75 : 1.65,
+                      color: 'var(--color-text-primary)',
                       margin: 0,
                     }}
                   >
@@ -422,8 +422,8 @@ export const ExperienceJourney: React.FC = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     gap: 'var(--space-1)',
-                    borderLeft: isArabic ? 'none' : '1px solid rgba(243, 237, 227, 0.08)',
-                    borderRight: isArabic ? '1px solid rgba(243, 237, 227, 0.08)' : 'none',
+                    borderLeft: isArabic ? 'none' : '1px solid rgba(255, 255, 255, 0.08)',
+                    borderRight: isArabic ? '1px solid rgba(255, 255, 255, 0.08)' : 'none',
                     paddingLeft: isArabic ? 0 : 'clamp(1rem, 2.5vw, 1.5rem)',
                     paddingRight: isArabic ? 'clamp(1rem, 2.5vw, 1.5rem)' : 0,
                   }}
@@ -434,7 +434,7 @@ export const ExperienceJourney: React.FC = () => {
                       fontSize: isArabic ? '0.9rem' : 'var(--text-xs)',
                       fontWeight: 700,
                       letterSpacing: isArabic ? '0.04em' : '0.16em',
-                      color: 'var(--color-muted-beige)',
+                      color: 'var(--color-solar-amber)',
                       textTransform: 'uppercase',
                     }}
                   >
@@ -444,9 +444,9 @@ export const ExperienceJourney: React.FC = () => {
                     style={{
                       fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
                       fontSize: isArabic ? '1rem' : '0.92rem',
-                      fontWeight: isArabic ? 400 : 300,
-                      lineHeight: isArabic ? 1.7 : 1.6,
-                      color: 'var(--color-muted-beige)',
+                      fontWeight: 400,
+                      lineHeight: isArabic ? 1.75 : 1.65,
+                      color: 'var(--color-text-secondary)',
                       margin: 0,
                     }}
                   >

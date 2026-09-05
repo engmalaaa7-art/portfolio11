@@ -13,37 +13,37 @@ export const EducationOrigin: React.FC = () => {
       num: '01',
       titleEn: '01 — UNDERSTAND',
       titleAr: '٠١ — الفهم والتحليل',
-      descEn: 'Understand the problem before starting the solution.',
+      descEn: 'Understand the problem deeply before architecting the solution.',
       descAr: 'فهم المشكلة بعمق قبل البدء في وضع الحلول.',
       icon: <BookOpen size={16} />,
-      color: '#B9ADA1',
+      color: '#94A3B8',
     },
     {
       num: '02',
       titleEn: '02 — THINK',
       titleAr: '٠٢ — التفكير والتوجيه',
-      descEn: 'Transform the problem into a clear direction.',
+      descEn: 'Transform the problem into a clear strategic direction.',
       descAr: 'تحويل المشكلة إلى رؤية واتجاه استراتيجي واضح.',
       icon: <Layers size={16} />,
-      color: '#B82024',
+      color: '#1D4ED8',
     },
     {
       num: '03',
       titleEn: '03 — BUILD',
       titleAr: '٠٣ — البناء والتنفيذ',
-      descEn: 'Design meets Technology.',
+      descEn: 'Where design meets precision engineering.',
       descAr: 'التصميم يلتقي بالتكنولوجيا والبرمجة.',
       icon: <Cpu size={16} />,
-      color: '#E64A24',
+      color: '#38BDF8',
     },
     {
       num: '04',
       titleEn: '04 — REFINE',
       titleAr: '٠٤ — الإتقان والتطوير',
-      descEn: 'Small details make the big difference.',
+      descEn: 'Small details make the monumental difference.',
       descAr: 'التفاصيل الدقيقة تصنع الفارق الكبير.',
       icon: <Box size={16} />,
-      color: '#F27A32',
+      color: '#F58A07',
     },
   ];
 
@@ -54,8 +54,8 @@ export const EducationOrigin: React.FC = () => {
       style={{
         position: 'relative',
         zIndex: 10,
-        backgroundColor: 'var(--color-deep-black)',
-        color: 'var(--color-cream-white)',
+        backgroundColor: 'var(--color-canvas)',
+        color: 'var(--color-text-primary)',
         padding: 'clamp(5rem, 10vh, 8rem) var(--space-8)',
         minHeight: 'auto',
         display: 'flex',
@@ -63,7 +63,7 @@ export const EducationOrigin: React.FC = () => {
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
-        borderTop: '1px solid rgba(184, 32, 36, 0.2)',
+        borderTop: '1px solid rgba(29, 78, 216, 0.25)',
       }}
     >
       {/* Abstract Drafting & Architectural Geometry Background */}
@@ -74,15 +74,15 @@ export const EducationOrigin: React.FC = () => {
           width: '100%',
           height: '100%',
           pointerEvents: 'none',
-          opacity: 0.12,
+          opacity: 0.08,
         }}
         viewBox="0 0 1000 700"
         preserveAspectRatio="none"
       >
-        <line x1="120" y1="0" x2="120" y2="700" stroke="var(--color-cream-white)" strokeDasharray="2 4" />
-        <line x1="880" y1="0" x2="880" y2="700" stroke="var(--color-cream-white)" strokeDasharray="2 4" />
-        <circle cx="500" cy="350" r="240" stroke="var(--color-hot-orange)" strokeWidth="0.5" fill="none" />
-        <circle cx="500" cy="350" r="340" stroke="var(--color-cinematic-red)" strokeWidth="0.3" strokeDasharray="3 6" fill="none" />
+        <line x1="120" y1="0" x2="120" y2="700" stroke="var(--color-text-primary)" strokeDasharray="2 4" />
+        <line x1="880" y1="0" x2="880" y2="700" stroke="var(--color-text-primary)" strokeDasharray="2 4" />
+        <circle cx="500" cy="350" r="240" stroke="var(--color-solar-amber)" strokeWidth="0.5" fill="none" />
+        <circle cx="500" cy="350" r="340" stroke="var(--color-cobalt-light)" strokeWidth="0.3" strokeDasharray="3 6" fill="none" />
       </svg>
 
       <div
@@ -112,10 +112,10 @@ export const EducationOrigin: React.FC = () => {
             fontWeight: 700,
             letterSpacing: isArabic ? '0.04em' : '0.25em',
             textTransform: 'uppercase',
-            color: 'var(--color-hot-orange)',
+            color: 'var(--color-solar-amber)',
           }}
         >
-          <span style={{ width: '18px', height: '1px', backgroundColor: 'var(--color-hot-orange)' }} />
+          <span style={{ width: '18px', height: '1px', backgroundColor: 'var(--color-solar-amber)' }} />
           {t('approach_eyebrow')}
         </motion.div>
 
@@ -127,12 +127,12 @@ export const EducationOrigin: React.FC = () => {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.75, delay: 0.1, ease: 'easeOut' }}
             style={{
-              fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display-alt)',
+              fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
               fontSize: isArabic ? 'clamp(1.2rem, 2.2vw, 1.6rem)' : 'clamp(1.1rem, 2vw, 1.5rem)',
               letterSpacing: isArabic ? '0.02em' : '0.12em',
-              color: 'var(--color-warm-orange)',
+              color: 'var(--color-electric-cyan)',
               textTransform: 'uppercase',
-              fontWeight: isArabic ? 700 : 'normal',
+              fontWeight: 600,
             }}
           >
             {t('origin_university')}
@@ -144,16 +144,16 @@ export const EducationOrigin: React.FC = () => {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.85, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             style={{
-              fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)',
+              fontFamily: isArabic ? 'var(--font-arabic-display)' : 'var(--font-display)',
               fontSize: isArabic ? 'clamp(2.5rem, 6vw, 5.5rem)' : 'clamp(3rem, 7vw, 6rem)',
               lineHeight: isArabic ? 1.15 : 0.88,
-              letterSpacing: isArabic ? '0.02em' : '0.04em',
+              letterSpacing: isArabic ? '0.01em' : '0.03em',
               textTransform: 'uppercase',
-              color: 'var(--color-cream-white)',
+              color: 'var(--color-text-primary)',
               margin: 0,
               width: '100%',
               whiteSpace: 'nowrap',
-              fontWeight: isArabic ? 800 : 'normal',
+              fontWeight: isArabic ? 900 : 800,
             }}
           >
             {t('approach_title')}
@@ -179,10 +179,10 @@ export const EducationOrigin: React.FC = () => {
                 alignItems: 'center',
                 gap: '6px',
                 padding: '4px 12px',
-                backgroundColor: 'rgba(230, 74, 36, 0.15)',
-                border: '1px solid var(--color-hot-orange)',
+                backgroundColor: 'rgba(245, 138, 7, 0.15)',
+                border: '1px solid var(--color-solar-amber)',
                 borderRadius: 'var(--border-radius-sm)',
-                color: 'var(--color-cream-white)',
+                color: 'var(--color-text-primary)',
                 fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
                 fontSize: '11px',
                 fontWeight: 700,
@@ -190,7 +190,7 @@ export const EducationOrigin: React.FC = () => {
                 textTransform: 'uppercase',
               }}
             >
-              <Award size={13} color="var(--color-hot-orange)" />
+              <Award size={13} color="var(--color-solar-amber)" />
               <span>{isArabic ? 'المعدل: 3.8 (امتياز مرتفع +A)' : 'GPA 3.8 · GRADE A+'}</span>
             </div>
 
@@ -200,10 +200,10 @@ export const EducationOrigin: React.FC = () => {
                 alignItems: 'center',
                 gap: '6px',
                 padding: '4px 12px',
-                backgroundColor: 'rgba(243, 237, 227, 0.06)',
-                border: '1px solid rgba(243, 237, 227, 0.18)',
+                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                border: 'var(--border-subtle)',
                 borderRadius: 'var(--border-radius-sm)',
-                color: 'var(--color-muted-beige)',
+                color: 'var(--color-text-secondary)',
                 fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
                 fontSize: '11px',
                 fontWeight: 600,
@@ -224,9 +224,9 @@ export const EducationOrigin: React.FC = () => {
             style={{
               fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)',
               fontSize: isArabic ? '1.1rem' : 'clamp(0.95rem, 1.3vw, 1.1rem)',
-              fontWeight: isArabic ? 400 : 300,
-              lineHeight: isArabic ? 1.7 : 1.6,
-              color: 'var(--color-muted-beige)',
+              fontWeight: 400,
+              lineHeight: isArabic ? 1.75 : 1.65,
+              color: 'var(--color-text-secondary)',
               maxWidth: '720px',
               margin: 'var(--space-2) 0 0 0',
             }}
@@ -245,7 +245,7 @@ export const EducationOrigin: React.FC = () => {
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
             gap: 'var(--space-4)',
-            borderTop: '1px solid rgba(243, 237, 227, 0.1)',
+            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
             paddingTop: 'var(--space-6)',
           }}
         >
@@ -254,9 +254,11 @@ export const EducationOrigin: React.FC = () => {
               key={area.num}
               style={{
                 padding: 'var(--space-5)',
-                backgroundColor: 'rgba(14, 12, 16, 0.65)',
-                border: `1px solid ${area.color}33`,
+                backgroundColor: 'var(--color-surface-card)',
+                backdropFilter: 'blur(16px)',
+                border: `1px solid ${area.color}40`,
                 borderRadius: 'var(--border-radius-md)',
+                boxShadow: 'var(--shadow-card)',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 'var(--space-2)',
@@ -268,10 +270,10 @@ export const EducationOrigin: React.FC = () => {
                 </span>
                 <span style={{ color: area.color }}>{area.icon}</span>
               </div>
-              <h3 style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-display)', fontSize: isArabic ? '1.35rem' : '1.4rem', color: 'var(--color-cream-white)', margin: 0, fontWeight: isArabic ? 700 : 'normal' }}>
+              <h3 style={{ fontFamily: isArabic ? 'var(--font-arabic-display)' : 'var(--font-display)', fontSize: isArabic ? '1.35rem' : '1.35rem', color: 'var(--color-text-primary)', margin: 0, fontWeight: 800 }}>
                 {isArabic ? area.titleAr : area.titleEn}
               </h3>
-              <p style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: isArabic ? '0.95rem' : '0.85rem', color: 'var(--color-muted-beige)', lineHeight: isArabic ? 1.6 : 1.5, margin: 0 }}>
+              <p style={{ fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-body)', fontSize: isArabic ? '0.95rem' : '0.88rem', color: 'var(--color-text-secondary)', lineHeight: isArabic ? 1.65 : 1.55, margin: 0 }}>
                 {isArabic ? area.descAr : area.descEn}
               </p>
             </div>
